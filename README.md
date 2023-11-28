@@ -1,44 +1,10 @@
-## NestJS Starter Template
+## Telegram-GPT
 
-NestJS starter template with TypeScript and Prisma to kickstart your Node.js project.
-
-### What's inside?
-
-This starter template includes:
-
-- [NestJS](https://nestjs.com/) - Modern and progressive Node.js framework
-- [TypeScript](https://www.typescriptlang.org/) - Your safety net when writing JavaScript
-- [Prisma](https://prisma.io/) - Next generation Node.js and TypeScript ORM
-- [pnpm](https://pnpm.io/) - Fast and efficient package manager
-- [Docker](https://docs.docker.com/get-started/) - Develop, ship, and run your app with containers
-- [Redis]() - Popular in-memory key-value database and caching system
-- [PostgreSQL](https://www.postgresql.org/) - Popular open-source SQL relational database management system
-- [pgAdmin](https://www.pgadmin.org/) - Open-source Postgres admin and development tools
-- [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/) - Find & fix problems in the codebase and format code automatically on save
-- [Makefile](https://makefiletutorial.com/) - Handy automation tool to run and compile your programs more efficiently
-- [Pino](https://getpino.io) - Node.js logging tools
-- [OpenAPI](https://swagger.io/resources/open-api/) - Standard specification for HTTP APIs
-- [Husky](https://typicode.github.io/husky/) - Git hooks tool
-  - [Commit Lint](https://commitlint.js.org/#/) - Force devs to follow conventional commit message
-  - [Lint Staged](https://github.com/lint-staged/lint-staged) - Format & lint your code before committing, block commit if issues are detected
-- [Github Actions](https://docs.github.com/en/actions) - Check, test, and build your code automatically on push and PR
-- [Dependabot](https://github.com/dependabot) - Create pull-request to update your dependencies
-- [Jest](https://jestjs.io/) - Popular JavaScript unit testing library
-- [Supertest](https://github.com/ladjs/supertest) - SuperAgent driven library for testing HTTP servers
+A Telegram Bot named Samantha, inspired by the film "Her" that leverages Chat-GPT features with OpenAI.
 
 ### Getting Started
 
-1. Clone repo:
-
-   Tips: You can use [degit](https://github.com/Rich-Harris/degit) to clone this repo without running `git clone`. [Learn more](https://github.com/Rich-Harris/degit)
-
-   ```bash
-   degit hanstanawi/nestjs-starter-template your-app-name
-   ```
-
-   or simply use this template on GitHub when creating new repository.
-
-2. Install dependencies:
+1. Install dependencies:
 
    Make sure you have [pnpm](https://pnpm.io/) installed. [Learn more](https://pnpm.io/installation) about installing pnpm.
 
@@ -46,15 +12,7 @@ This starter template includes:
    pnpm install
    ```
 
-3. Install Nest CLI
-
-   Nest CLI is a great command-line interface tool that helps you to initialize, develop, and maintain your Nest project. You need to install it globally in order to run the `nest` command in terminal.
-
-   ```bash
-   pnpm -g add @nestjs/cli
-   ```
-
-4. Run the database
+2. Run the database
 
    Since this project uses Prisma ORM. The Postgres database container needs to be running upon the project init to avoid any Prisma connection error.
 
@@ -64,25 +22,23 @@ This starter template includes:
 
    To learn more about running databases using Docker. Checkout the [Prisma](#prisma) section.
 
-5. Run the development server
+3. Run the app in dev mode
 
    ```bash
    pnpm start:dev
    ```
 
-6. Make a request to [http://localhost:3333](http://localhost:3333) with cURL to see the result.
+### Commands
 
-   ```bash
-   curl --location "http://localhost:3333/api/v1"
-   ```
-
-   You can start editing the project by modifying `app.module.ts` or create a new module by running
-
-   ```bash
-   nest g module your-new-module
-   ```
-
-   The project auto-updates as you edit the file.
+- `reset` - To reset your character and bot chat history
+- `start` - To initialize your bot
+- `model` - To show the list of available models and select your model.
+- `speaker` - To show the list of available speakers.
+- `character_prompt` - To enter your bot character prompt and select predefined character. To enter custom character prompt, use: e.g. `/character_prompt i am an assistant`
+- `chub_ai` - input your chub ai url
+- `length_scale` - Range: 0.1 - 4. To enter the speed of the TTS voice speaker.
+- `noise_scale` - Range: 0 - 1. To enter the noise scale of TTS voice speaker.
+- `noise_w` - Range: 0 - 1. To control how expressive the speech is.
 
 ### Docker
 
@@ -178,84 +134,3 @@ You can run unit tests and e2e tests manually on your machine:
   ```bash
   pnpm test:cov
   ```
-
-### Integration Testing
-
-This starter template has integration tests with Jest and Supertest setup out of the box. In integration tests, we test the full feature of each APIs to ensure each API behave correctly and spot bugs early.
-
-We need to test the database connection and integration with the app. Therefore, before we run integration tests, all database connection needs to be setup. Different database for integration tests needs to be setup, so it will not disturb our development database. The Postgres test database container configuration can be found in `docker-compose.test.yaml` to learn more.
-
-1. Create `.env.test` file to load env variables for test environment
-
-   Your existing `.env` variables may vary. However, you should change these `.env` variables to test variables
-
-   ```plaintext
-   POSTGRES_USERNAME="YOUR_TEST_DB_USERNAME"
-   POSTGRES_PASSWORD="YOUR_TEST_DB_PASSWORD"
-   POSTGRES_DB="YOUR_TEST_DB_NAME"
-   DATABASE_URL=""
-
-   REDIS_HOST=""
-   REDIS_PORT=""
-   ```
-
-2. Run integration test setup script
-
-   ```bash
-   make e2e-test-up
-   ```
-
-   In this script, it runs the Postgres docker container test database and run existing migrations to test database.
-
-3. Run integration tests
-
-   - Run all integration tests
-
-     ```bash
-     pnpm test:e2e
-     ```
-
-   - Watch mode
-
-     ```bash
-     pnpm test:e2e:watch
-     ```
-
-4. Stop Postgres test database container
-
-   ```bash
-   make e2e-test-down
-   ```
-
-### OpenAPI Specification
-
-This starter template has [OpenAPI Swagger](https://swagger.io/specification/) documentation setup out of the box. You can update the API documentation based to your liking on your application API specification. To learn more about OpenAPI with NestJS configuration, you can visit the documentation [here](https://docs.nestjs.com/openapi/introduction).
-
-To view OpenAPI documentation page
-
-1. Start the development server
-
-   ```bash
-   pnpm start:dev
-   ```
-
-   Don't forget to start the postrges container, otherwise Prisma will throw a connection error when starting up the app.
-
-   ```bash
-   pnpm db:up
-   ```
-
-2. Open your browser and visit [http://localhost:3333/api](http://localhost:3333/api) to view the API documentation.
-
-### Learn More
-
-To learn more about NestJS and its ecosystem, take a look at the following resources:
-
-- [Learn NestJS](https://docs.nestjs.com/) - learn about NestJS fundamentals, techniques, and recipes.
-- [Learn NestJS tutorial series](https://wanago.io/courses/api-with-nestjs/) - comprehensive tutorial to learn NestJS from the ground up.
-- [Learn TypeScript](https://learntypescript.dev/) - an interactive course to learn TypeScript
-- [Learn Prisma](https://prisma.io/) - learn about Prisma ORM core concepts, queries, and migrations.
-- [Learn Building REST API with NestJS and Prisma](https://www.prisma.io/blog/nestjs-prisma-rest-api-7D056s1BmOL0) - learn about building a REST API with NestJS and Prisma
-- [Learn PostgreSQL](https://www.postgresqltutorial.com/) - learn the fundamentals of PostgreSQL
-- [Learn Docker](https://docs.docker.com/get-started/) - learn about the basics of Docker
-- [Learn Testing with Prisma](https://www.prisma.io/blog/series/ultimate-guide-to-testing-eTzz0U4wwV) - learn about multiple testing techniques with Prisma
