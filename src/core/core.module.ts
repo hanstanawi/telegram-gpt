@@ -1,7 +1,6 @@
 import { CacheModule } from '@nestjs/cache-manager';
 import { Global, Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import * as redisStore from 'cache-manager-redis-store';
+import { ConfigModule } from '@nestjs/config';
 import { LoggerModule } from 'nestjs-pino';
 import { DatabaseModule } from 'src/database/database.module';
 
@@ -11,24 +10,8 @@ import { CacheService } from './cache/cache.service';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    CacheModule.registerAsync({
-      imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => {
-        const username = configService.get('redis.username');
-        const password = configService.get('redis.password');
-
-        return {
-          isGlobal: true,
-          store: redisStore,
-          host: configService.get('REDIS_HOST') as string,
-          port: configService.get('REDIS_PORT') as string,
-          ...(username && { username }),
-          ...(password && { password }),
-          no_ready_check: true,
-          ttl: 10000, // Default 10s
-        };
-      },
-      inject: [ConfigService],
+    CacheModule.register({
+      isGlobal: true,
     }),
     DatabaseModule,
     LoggerModule.forRoot({
