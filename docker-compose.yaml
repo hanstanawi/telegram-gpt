@@ -33,14 +33,6 @@ services:
       - '5432:5432'
     networks:
       - postgres
-  redis:
-    image: redis:alpine
-    restart: unless-stopped
-    container_name: redis_instance
-    ports:
-      - 6379:6379
-    volumes:
-      - redis:/data
   pgadmin:
     image: dpage/pgadmin4
     restart: unless-stopped
@@ -63,5 +55,3 @@ volumes:
   app:
   postgres:
   pgadmin:
-  redis:
-    driver: local
