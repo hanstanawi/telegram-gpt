@@ -1,44 +1,27 @@
-import {
-  Command,
-  Ctx,
-  InjectBot,
-  Message,
-  On,
-  Sender,
-  Start,
-  Update,
-} from 'nestjs-telegraf';
+import { Ctx, InjectBot, Message, On, Start, Update } from 'nestjs-telegraf';
+import { TextCommand } from 'src/cmd/text/text.command';
 import { BOT_NAME } from 'src/common/constants';
+import type { TelegramTextMessage } from 'src/common/types';
 import { Context, Scenes, Telegraf } from 'telegraf';
-
-import type { TelegramMessage, TelegramUser } from './bot.types';
 
 @Update()
 export class BotUpdate {
   constructor(
     @InjectBot(BOT_NAME) private readonly bot: Telegraf<Scenes.SceneContext>,
+    private readonly textCommand: TextCommand,
   ) {}
 
   @Start()
-  async onStart(@Message() message: TelegramMessage) {
-    console.log(message);
-    const me = await this.bot.telegram.getMe();
-    return `Hello ${me.username}`;
+  async onStart(@Message() message: TelegramTextMessage) {
+    const user = message.from;
+    return `Hello ${user.username}`;
   }
-
-  @Command(/model/i)
-  onModelCommand(
-    @Ctx() ctx: Context,
-    @Message('text') text: string,
-    @Sender() sender: TelegramUser,
-  ) {}
 
   @On('text')
   async onTextMessage(
     @Ctx() ctx: Context,
-    @Message('text') text: string,
-    @Sender() sender: TelegramUser,
+    @Message() message: TelegramTextMessage,
   ) {
-    return `Hello, ${sender.first_name}`;
+    return this.textCommand.handleTextMessage(ctx, message);
   }
 }
