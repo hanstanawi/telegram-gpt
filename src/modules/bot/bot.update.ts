@@ -1,6 +1,17 @@
-import { InjectBot, Start, Update } from 'nestjs-telegraf';
+import {
+  Command,
+  Ctx,
+  InjectBot,
+  Message,
+  On,
+  Sender,
+  Start,
+  Update,
+} from 'nestjs-telegraf';
 import { BOT_NAME } from 'src/common/constants';
-import { Scenes, Telegraf } from 'telegraf';
+import { Context, Scenes, Telegraf } from 'telegraf';
+
+import type { TelegramMessage, TelegramUser } from './bot.types';
 
 @Update()
 export class BotUpdate {
@@ -9,8 +20,25 @@ export class BotUpdate {
   ) {}
 
   @Start()
-  async onStart() {
+  async onStart(@Message() message: TelegramMessage) {
+    console.log(message);
     const me = await this.bot.telegram.getMe();
     return `Hello ${me.username}`;
+  }
+
+  @Command(/model/i)
+  onModelCommand(
+    @Ctx() ctx: Context,
+    @Message('text') text: string,
+    @Sender() sender: TelegramUser,
+  ) {}
+
+  @On('text')
+  async onTextMessage(
+    @Ctx() ctx: Context,
+    @Message('text') text: string,
+    @Sender() sender: TelegramUser,
+  ) {
+    return `Hello, ${sender.first_name}`;
   }
 }

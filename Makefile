@@ -1,4 +1,4 @@
-PROJECT = "NestJS Starter"
+PROJECT = "Telegram-GPT"
 
 docker-up: ;@echo "Building and running ${PROJECT} containers....."; \
 	docker compose up -d --build
