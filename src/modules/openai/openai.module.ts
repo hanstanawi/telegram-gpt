@@ -1,9 +1,13 @@
 import { Module } from '@nestjs/common';
 
-import { OpenAiService } from './openai.service';
+import {
+  OpenAiAudioService,
+  OpenAiChatService,
+  OpenAiService,
+} from './services';
 
 @Module({
-  providers: [OpenAiService],
-  exports: [OpenAiService],
+  providers: [OpenAiService, OpenAiAudioService, OpenAiChatService],
+  exports: [OpenAiService, OpenAiAudioService, OpenAiChatService],
 })
 export class OpenAiModule {}
