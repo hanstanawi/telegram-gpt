@@ -9,7 +9,7 @@ export class ModelCommand {
   public async handleModelCommand(ctx: Context) {
     const models = await this.openAiService.getAllModels();
 
-    return await ctx.sendMessage('Select your model', {
+    return ctx.sendMessage('Select your model', {
       reply_markup: {
         inline_keyboard: [],
       },
