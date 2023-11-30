@@ -4,25 +4,33 @@ import {
   UnprocessableEntityException,
 } from '@nestjs/common';
 
-import type { CompletionMessage, OpenAIModel } from '../openai.types';
-import { OpenAiService } from './openai.service';
+import openai from '../openai.lib';
+import type {
+  ChatCompletionResult,
+  CompletionMessage,
+  OpenAIModel,
+} from '../openai.types';
 
 @Injectable()
 export class OpenAiChatService {
+  private readonly openaiChatInstance = openai.chat;
   private readonly logger = new Logger(OpenAiChatService.name);
 
-  constructor(private readonly openAiService: OpenAiService) {}
-
+  /**
+   * @description generate chat completion with openai chat completion api
+   * @param {OpenAIModel} model openai model selection
+   * @param {CompletionMessage[]} messages list of messages history between system and user
+   * @returns {ChatCompletionResult} chat completion object data
+   */
   public async generateChatCompletion(
     model: OpenAIModel,
     messages: CompletionMessage[],
-  ) {
+  ): Promise<ChatCompletionResult> {
     try {
-      const completion =
-        await this.openAiService.openAiInstance.chat.completions.create({
-          messages,
-          model: model.id,
-        });
+      const completion = await this.openaiChatInstance.completions.create({
+        messages,
+        model: model.id,
+      });
 
       return completion;
     } catch (err) {
