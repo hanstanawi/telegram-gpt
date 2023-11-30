@@ -1,12 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { OpenAiService } from 'src/modules/openai/services';
+import { OpenAiModelService } from 'src/modules/openai/services';
 
 import { ModelCommand } from './model.command';
 
 describe('ModelCommand', () => {
   let command: ModelCommand;
 
-  const mockOpenAiService = {
+  const mockOpenAiModelService = {
     getAllModels: jest.fn(),
   };
 
@@ -14,7 +14,7 @@ describe('ModelCommand', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         ModelCommand,
-        { provide: OpenAiService, useValue: mockOpenAiService },
+        { provide: OpenAiModelService, useValue: mockOpenAiModelService },
       ],
     }).compile();
 
