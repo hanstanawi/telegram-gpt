@@ -4,7 +4,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { OpenAiService } from './openai.service';
 
 const mockConfigService = {
-  get: jest.fn().mockImplementation((envKey: string) => 'test-api-key'),
+  get: jest.fn().mockImplementation(() => 'test-api-key'),
 };
 
 describe('OpenAiService', () => {

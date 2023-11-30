@@ -19,6 +19,10 @@ export class OpenAiService {
     });
   }
 
+  /**
+   * @description retrieve all available OpenAI models
+   * @returns {Promise<OpenAIModel[]>} OpenAI models
+   */
   public async getAllModels(): Promise<OpenAIModel[]> {
     try {
       const models = await this.openAiInstance.models.list();
