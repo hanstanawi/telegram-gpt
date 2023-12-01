@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
+import { OpenAiModule } from 'src/modules/openai/openai.module';
 
+import { ModelCommand } from './model/model.command';
 import { TextCommand } from './text/text.command';
-import { TextModule } from './text/text.module';
 
 @Module({
-  imports: [TextModule],
-  providers: [TextCommand],
-  exports: [TextCommand],
+  imports: [OpenAiModule],
+  providers: [TextCommand, ModelCommand],
+  exports: [TextCommand, ModelCommand],
 })
 export class CmdModule {}

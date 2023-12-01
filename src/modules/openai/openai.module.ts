@@ -3,11 +3,11 @@ import { Module } from '@nestjs/common';
 import {
   OpenAiAudioService,
   OpenAiChatService,
-  OpenAiService,
+  OpenAiModelService,
 } from './services';
 
 @Module({
-  providers: [OpenAiService, OpenAiAudioService, OpenAiChatService],
-  exports: [OpenAiService, OpenAiAudioService, OpenAiChatService],
+  providers: [OpenAiModelService, OpenAiAudioService, OpenAiChatService],
+  exports: [OpenAiModelService, OpenAiAudioService, OpenAiChatService],
 })
 export class OpenAiModule {}
