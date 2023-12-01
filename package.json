@@ -25,7 +25,7 @@
   "scripts": {
     "build": "nest build",
     "db:deploy": "prisma migrate deploy",
-    "db:up": "docker-compose up postgres redis -d --build",
+    "db:up": "docker-compose up postgres -d --build",
     "db:down": "docker-compose down",
     "db:generate": "prisma generate",
     "db:view": "prisma studio",
