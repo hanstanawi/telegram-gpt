@@ -3,6 +3,17 @@ import { OpenAiModelService } from 'src/modules/openai/services';
 
 import { ModelCommand } from './model.command';
 
+jest.mock('src/modules/openai/openai.lib', () => {
+  return {
+    __esModule: true,
+    default: {
+      models: {
+        list: jest.fn(),
+      },
+    },
+  };
+});
+
 describe('ModelCommand', () => {
   let command: ModelCommand;
 

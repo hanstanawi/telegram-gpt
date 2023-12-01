@@ -2,6 +2,19 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 import { OpenAiChatService } from './openai-chat.service';
 
+jest.mock('../openai.lib', () => {
+  return {
+    __esModule: true,
+    default: {
+      chat: {
+        completions: {
+          create: jest.fn(),
+        },
+      },
+    },
+  };
+});
+
 describe('OpenAiChatService', () => {
   let service: OpenAiChatService;
 
