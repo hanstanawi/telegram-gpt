@@ -23,7 +23,7 @@ export class ChatService {
    * @param {number} limit limit number of retrieved items (@default limit 10)
    * @returns {Promise<Chat[]>} list of chats
    */
-  public findChats(limit: number = 10): Promise<Chat[]> {
+  public findAll(limit: number = 10): Promise<Chat[]> {
     return this.databaseService.chat.findMany({
       take: limit,
     });
@@ -34,7 +34,7 @@ export class ChatService {
    * @param {number} id telegram chat id
    * @returns {Promise<Chat | null>} retrieved chat data, null if not found
    */
-  public findChatById(id: number): Promise<Chat | null> {
+  public findOneById(id: number): Promise<Chat | null> {
     return this.databaseService.chat.findUnique({
       where: {
         id,
@@ -47,7 +47,7 @@ export class ChatService {
    * @param {CreateChatDto} payload create chat payload
    * @returns {Promise<Chat>} created chat from db
    */
-  public async insertChat(payload: CreateChatDto): Promise<Chat> {
+  public async insertOne(payload: CreateChatDto): Promise<Chat> {
     try {
       const chat = createChatSchema.parse(payload);
 
@@ -89,9 +89,9 @@ export class ChatService {
    * @param {UpdateChatDto} payload update chat payload
    * @returns {Promise<Chat>} updated chat
    */
-  public async updateChat(id: number, payload: UpdateChatDto): Promise<Chat> {
+  public async updateOne(id: number, payload: UpdateChatDto): Promise<Chat> {
     try {
-      const existingChat = await this.findChatById(id);
+      const existingChat = await this.findOneById(id);
 
       if (!existingChat) {
         const exception = new NotFoundException(

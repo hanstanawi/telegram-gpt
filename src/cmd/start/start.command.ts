@@ -30,11 +30,11 @@ export class StartCommand {
         throw exception;
       }
 
-      const existingChat = await this.chatService.findChatById(chat.id);
+      const existingChat = await this.chatService.findOneById(chat.id);
 
       if (!existingChat) {
         // Insert new chat
-        const newChat = await this.chatService.insertChat({
+        const newChat = await this.chatService.insertOne({
           id: chat.id,
           firstName: user.first_name,
           lastName: user.last_name,
