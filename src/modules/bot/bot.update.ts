@@ -8,6 +8,7 @@ import {
   Update,
 } from 'nestjs-telegraf';
 import { ModelCommand } from 'src/cmd/model/model.command';
+import { StartCommand } from 'src/cmd/start/start.command';
 import { TextCommand } from 'src/cmd/text/text.command';
 import { BOT_NAME } from 'src/common/constants';
 import type { TelegramTextMessage } from 'src/common/types';
@@ -19,12 +20,12 @@ export class BotUpdate {
     @InjectBot(BOT_NAME) private readonly bot: Telegraf<Scenes.SceneContext>,
     private readonly textCommand: TextCommand,
     private readonly modelCommand: ModelCommand,
+    private readonly startCommand: StartCommand,
   ) {}
 
   @Start()
   async onStart(@Message() message: TelegramTextMessage) {
-    const user = message.from;
-    return `Hello ${user.username}`;
+    return this.startCommand.handleStartCommand(message);
   }
 
   @Command(/model/i)
