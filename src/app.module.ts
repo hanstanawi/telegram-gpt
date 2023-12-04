@@ -6,6 +6,7 @@ import { CmdModule } from './cmd/cmd.module';
 import { BOT_NAME } from './common/constants';
 import { CoreModule } from './core/core.module';
 import { BotModule } from './modules/bot/bot.module';
+import { ChatModule } from './modules/chat/chat.module';
 import { OpenAiModule } from './modules/openai/openai.module';
 
 @Module({
@@ -21,6 +22,7 @@ import { OpenAiModule } from './modules/openai/openai.module';
       inject: [ConfigService],
     }),
     BotModule,
+    ChatModule,
     CmdModule,
     OpenAiModule,
   ],

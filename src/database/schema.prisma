@@ -12,16 +12,16 @@ datasource db {
 }
 
 model Chat {
-  id          BigInt    @id
+  id          BigInt     @id
   firstName   String
   lastName    String?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt()
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt()
   messages    Message[] // One-to-many
   model       Model? // One-to-one
   voice       Voice? // One-to-one
-  characterId String
-  character   Character @relation(fields: [characterId], references: [id]) // Many-to-one
+  characterId String?
+  character   Character? @relation(fields: [characterId], references: [id]) // Many-to-one
 }
 
 model Character {
