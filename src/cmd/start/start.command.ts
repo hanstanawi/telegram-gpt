@@ -46,11 +46,11 @@ export class StartCommand {
 
         return `Hi I'm Samantha. What can I do for you?
           
-        - To enter your character prompt. e.g. "/character I'm an assistant."
+        - To view the list of character profiles, use /character command
         
-        - To enter your model. e.g "/model Llama"
+        - To view the list of available models, use /model command
     
-        - To enter your choice of speaker e.g "/speaker 59" (Speaker must be integer)
+        - To view the list of voices profile for Text-to-speech, use /voice command
     
         - To reset your character and bot chat history e.g "/reset"
         `;
