@@ -59,6 +59,7 @@
     "cache-manager": "^5.3.1",
     "nestjs-pino": "^3.5.0",
     "nestjs-telegraf": "^2.7.0",
+    "nestjs-zod": "^3.0.0",
     "openai": "^4.20.1",
     "pino-http": "^8.5.1",
     "pino-pretty": "^10.2.3",
