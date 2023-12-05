@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { ForbiddenException } from '@nestjs/common';
 import { Logger } from '@nestjs/common';
 import { Chat } from '@prisma/client';
+import { ERROR_MESSAGE } from 'src/common/constants';
 import { DatabaseService } from 'src/database/database.service';
 import { ZodError } from 'zod';
 
@@ -63,7 +64,9 @@ export class ChatService {
     } catch (err) {
       if (err instanceof ZodError) {
         const exception = new ForbiddenException({
-          message: err.issues.length ? err.issues[0].message : 'Bad Request',
+          message: err.issues.length
+            ? err.issues[0].message
+            : ERROR_MESSAGE.BAD_REQUEST,
           error: err.issues,
         });
 
