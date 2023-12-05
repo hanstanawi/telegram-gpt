@@ -33,7 +33,6 @@ export class StartCommand {
       const existingChat = await this.chatService.findOneById(chat.id);
 
       if (!existingChat) {
-        // Insert new chat
         const newChat = await this.chatService.insertOne({
           id: chat.id,
           firstName: user.first_name,
