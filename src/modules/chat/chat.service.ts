@@ -47,11 +47,11 @@ export class ChatService {
    * @param {CreateChatDto} payload create chat payload
    * @returns {Promise<Chat>} created chat from db
    */
-  public async insertOne(payload: CreateChatDto): Promise<Chat> {
+  public async createOne(payload: CreateChatDto): Promise<Chat> {
     try {
       const chat = createChatSchema.parse(payload);
 
-      const insertedChat = await this.databaseService.chat.create({
+      const createdChat = await this.databaseService.chat.create({
         data: {
           id: chat.id,
           firstName: chat.firstName,
@@ -59,7 +59,7 @@ export class ChatService {
         },
       });
 
-      return insertedChat;
+      return createdChat;
     } catch (err) {
       if (err instanceof ZodError) {
         const exception = new ForbiddenException({
