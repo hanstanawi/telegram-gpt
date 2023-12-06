@@ -61,7 +61,7 @@ export class ChatService {
       });
 
       return createdChat;
-    } catch (err) {
+    } catch (err: any) {
       if (err instanceof ZodError) {
         const exception = new ForbiddenException({
           message: err.issues.length
@@ -81,6 +81,11 @@ export class ChatService {
 
         throw exception;
       }
+
+      this.logger.error({
+        message: err.message,
+        error: JSON.stringify(err),
+      });
 
       throw err;
     }
@@ -115,7 +120,7 @@ export class ChatService {
       });
 
       return updatedChat;
-    } catch (err) {
+    } catch (err: any) {
       if (err instanceof ZodError) {
         const exception = new ForbiddenException({
           message: err.issues.length ? err.issues[0].message : 'Bad Request',
@@ -133,6 +138,11 @@ export class ChatService {
 
         throw exception;
       }
+
+      this.logger.error({
+        message: err.message,
+        error: JSON.stringify(err),
+      });
 
       throw err;
     }

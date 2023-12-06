@@ -57,7 +57,7 @@ export class MessageService {
       });
 
       return createdMessage;
-    } catch (err) {
+    } catch (err: any) {
       if (err instanceof ZodError) {
         const exception = new ForbiddenException({
           message: err.issues.length
