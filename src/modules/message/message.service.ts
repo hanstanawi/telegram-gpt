@@ -78,6 +78,11 @@ export class MessageService {
         throw exception;
       }
 
+      this.logger.error({
+        message: err.message,
+        error: JSON.stringify(err),
+      });
+
       throw err;
     }
   }
