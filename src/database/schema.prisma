@@ -26,6 +26,7 @@ model Chat {
 
 model Character {
   id        String   @id @default(cuid())
+  name      String
   prompt    String
   chats     Chat[] // One-to-many
   createdAt DateTime @default(now())

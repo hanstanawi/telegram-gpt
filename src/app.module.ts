@@ -10,6 +10,7 @@ import { BotModule } from './modules/bot/bot.module';
 import { ChatModule } from './modules/chat/chat.module';
 import { MessageModule } from './modules/message/message.module';
 import { OpenAiModule } from './modules/openai/openai.module';
+import { VoiceModule } from './modules/voice/voice.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { OpenAiModule } from './modules/openai/openai.module';
     OpenAiModule,
     MessageModule,
     ModelModule,
+    VoiceModule,
   ],
 })
 export class AppModule {}
