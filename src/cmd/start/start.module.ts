@@ -7,4 +7,4 @@ import { StartCommand } from './start.command';
   providers: [StartCommand],
   exports: [StartCommand],
 })
-export class StartModule {}
+export class StartCmdModule {}

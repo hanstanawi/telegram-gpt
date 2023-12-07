@@ -6,4 +6,4 @@ import { TextCommand } from './text.command';
   providers: [TextCommand],
   exports: [TextCommand],
 })
-export class TextModule {}
+export class TextCmdModule {}

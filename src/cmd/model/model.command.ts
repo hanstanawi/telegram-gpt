@@ -11,7 +11,7 @@ export class ModelCommand {
 
     return ctx.sendMessage('Select your model', {
       reply_markup: {
-        inline_keyboard: [],
+        inline_keyboard: [[{ text: 'Hello', callback_data: 'hello' }]],
       },
     });
   }

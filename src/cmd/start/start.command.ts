@@ -33,8 +33,7 @@ export class StartCommand {
       const existingChat = await this.chatService.findOneById(chat.id);
 
       if (!existingChat) {
-        // Insert new chat
-        const newChat = await this.chatService.insertOne({
+        const newChat = await this.chatService.createOne({
           id: chat.id,
           firstName: user.first_name,
           lastName: user.last_name,
@@ -56,7 +55,7 @@ export class StartCommand {
         `;
       }
 
-      return `Hi I'm Samantha. What can I do for you, ${existingChat.firstName}?`;
+      return `Hi welcome back, ${existingChat.firstName}. What can I do for you today?`;
     } catch (err: any) {
       return `Failed creating chat data. Issue: ${err.message}`;
     }

@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { ForbiddenException } from '@nestjs/common';
 import { Logger } from '@nestjs/common';
 import { Chat } from '@prisma/client';
+import { ERROR_MESSAGE } from 'src/common/constants';
 import { DatabaseService } from 'src/database/database.service';
 import { ZodError } from 'zod';
 
@@ -47,11 +48,11 @@ export class ChatService {
    * @param {CreateChatDto} payload create chat payload
    * @returns {Promise<Chat>} created chat from db
    */
-  public async insertOne(payload: CreateChatDto): Promise<Chat> {
+  public async createOne(payload: CreateChatDto): Promise<Chat> {
     try {
       const chat = createChatSchema.parse(payload);
 
-      const insertedChat = await this.databaseService.chat.create({
+      const createdChat = await this.databaseService.chat.create({
         data: {
           id: chat.id,
           firstName: chat.firstName,
@@ -59,11 +60,13 @@ export class ChatService {
         },
       });
 
-      return insertedChat;
-    } catch (err) {
+      return createdChat;
+    } catch (err: any) {
       if (err instanceof ZodError) {
         const exception = new ForbiddenException({
-          message: err.issues.length ? err.issues[0].message : 'Bad Request',
+          message: err.issues.length
+            ? err.issues[0].message
+            : ERROR_MESSAGE.BAD_REQUEST,
           error: err.issues,
         });
 
@@ -78,6 +81,11 @@ export class ChatService {
 
         throw exception;
       }
+
+      this.logger.error({
+        message: err.message,
+        error: JSON.stringify(err),
+      });
 
       throw err;
     }
@@ -112,7 +120,7 @@ export class ChatService {
       });
 
       return updatedChat;
-    } catch (err) {
+    } catch (err: any) {
       if (err instanceof ZodError) {
         const exception = new ForbiddenException({
           message: err.issues.length ? err.issues[0].message : 'Bad Request',
@@ -130,6 +138,11 @@ export class ChatService {
 
         throw exception;
       }
+
+      this.logger.error({
+        message: err.message,
+        error: JSON.stringify(err),
+      });
 
       throw err;
     }

@@ -8,4 +8,4 @@ import { ModelCommand } from './model.command';
   providers: [ModelCommand],
   exports: [ModelCommand],
 })
-export class ModelModule {}
+export class ModelCmdModule {}
