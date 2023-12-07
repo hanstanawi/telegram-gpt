@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { ChatService } from 'src/modules/chat/chat.service';
 import { MessageService } from 'src/modules/message/message.service';
 import { ModelService } from 'src/modules/model/model.service';
+import { VoiceService } from 'src/modules/voice/voice.service';
 
 import { ResetCommand } from './reset.command';
 
@@ -26,6 +27,13 @@ const mockModelService = {
   removeOne: jest.fn(),
 };
 
+const mockVoiceService = {
+  findOneByChatId: jest.fn(),
+  insertOne: jest.fn(),
+  updateOne: jest.fn(),
+  removeOne: jest.fn(),
+};
+
 describe('ResetCommand', () => {
   let command: ResetCommand;
 
@@ -36,6 +44,7 @@ describe('ResetCommand', () => {
         { provide: ChatService, useValue: mockChatService },
         { provide: MessageService, useValue: mockMessageService },
         { provide: ModelService, useValue: mockModelService },
+        { provide: VoiceService, useValue: mockVoiceService },
       ],
     }).compile();
 
