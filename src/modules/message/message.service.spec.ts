@@ -3,19 +3,19 @@ import { DatabaseService } from 'src/database/database.service';
 
 import { MessageService } from './message.service';
 
-const mockChats = [];
+const mockMessages = [];
 
-const mockChat = mockChats[0];
+const mockMessage = mockMessages[0];
 
 const mockDatabaseService = {
   message: {
-    findMany: jest.fn().mockResolvedValue(mockChats),
-    findUnique: jest.fn().mockResolvedValue(mockChat),
-    findFirst: jest.fn().mockResolvedValue(mockChat),
-    create: jest.fn().mockReturnValue(mockChat),
+    findMany: jest.fn().mockResolvedValue(mockMessages),
+    findUnique: jest.fn().mockResolvedValue(mockMessage),
+    findFirst: jest.fn().mockResolvedValue(mockMessage),
+    create: jest.fn().mockReturnValue(mockMessage),
     save: jest.fn(),
-    update: jest.fn().mockResolvedValue(mockChat),
-    delete: jest.fn().mockResolvedValue(mockChat),
+    update: jest.fn().mockResolvedValue(mockMessage),
+    delete: jest.fn().mockResolvedValue(mockMessage),
   },
 };
 
