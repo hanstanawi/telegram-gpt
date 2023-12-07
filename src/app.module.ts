@@ -3,12 +3,12 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TelegrafModule } from 'nestjs-telegraf';
 
 import { CmdModule } from './cmd/cmd.module';
-import { ModelModule } from './cmd/model/model.module';
 import { BOT_NAME } from './common/constants';
 import { CoreModule } from './core/core.module';
 import { BotModule } from './modules/bot/bot.module';
 import { ChatModule } from './modules/chat/chat.module';
 import { MessageModule } from './modules/message/message.module';
+import { ModelModule } from './modules/model/model.module';
 import { OpenAiModule } from './modules/openai/openai.module';
 import { VoiceModule } from './modules/voice/voice.module';
 

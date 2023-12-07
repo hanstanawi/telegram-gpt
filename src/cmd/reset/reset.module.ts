@@ -6,4 +6,4 @@ import { ResetCommand } from './reset.command';
   providers: [ResetCommand],
   exports: [ResetCommand],
 })
-export class ResetModule {}
+export class ResetCmdModule {}
