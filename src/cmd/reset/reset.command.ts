@@ -3,6 +3,7 @@ import { TelegramTextMessage } from 'src/common/types';
 import { ChatService } from 'src/modules/chat/chat.service';
 import { MessageService } from 'src/modules/message/message.service';
 import { ModelService } from 'src/modules/model/model.service';
+import { VoiceService } from 'src/modules/voice/voice.service';
 
 @Injectable()
 export class ResetCommand {
@@ -12,6 +13,7 @@ export class ResetCommand {
     private readonly chatService: ChatService,
     private readonly messageService: MessageService,
     private readonly modelService: ModelService,
+    private readonly voiceService: VoiceService,
   ) {}
 
   public async handleResetCommand(message: TelegramTextMessage) {
@@ -32,6 +34,7 @@ export class ResetCommand {
         }),
         this.messageService.removeAll(chat.id), // Remove messages history
         this.modelService.removeOne(chat.id), // Remove model data
+        this.voiceService.removeOne(chat.id),
       ]);
 
       this.logger.log(
