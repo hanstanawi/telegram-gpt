@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
-import { ChatModule } from 'src/modules/chat/chat.module';
-import { MessageModule } from 'src/modules/message/message.module';
-import { ModelModule } from 'src/modules/model/model.module';
-import { OpenAiModule } from 'src/modules/openai/openai.module';
-import { VoiceModule } from 'src/modules/voice/voice.module';
+import {
+  ChatModule,
+  MessageModule,
+  ModelModule,
+  OpenAiModule,
+  VoiceModule,
+} from 'src/modules';
 
 import { CallbackCommand } from './callback/callback.command';
 import { ModelCommand } from './model/model.command';
