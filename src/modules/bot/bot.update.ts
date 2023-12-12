@@ -1,5 +1,6 @@
 import { Command, Ctx, Message, On, Start, Update } from 'nestjs-telegraf';
 import { CallbackCommand } from 'src/cmd/callback/callback.command';
+import { CharacterCommand } from 'src/cmd/character/character.command';
 import { ModelCommand } from 'src/cmd/model/model.command';
 import { ResetCommand } from 'src/cmd/reset/reset.command';
 import { StartCommand } from 'src/cmd/start/start.command';
@@ -10,11 +11,12 @@ import type { Context } from 'telegraf';
 @Update()
 export class BotUpdate {
   constructor(
+    private readonly callbackCommand: CallbackCommand,
+    private readonly characterCommand: CharacterCommand,
     private readonly textCommand: TextCommand,
     private readonly modelCommand: ModelCommand,
     private readonly startCommand: StartCommand,
     private readonly resetCommand: ResetCommand,
-    private readonly callbackCommand: CallbackCommand,
   ) {}
 
   @Start()
@@ -30,6 +32,14 @@ export class BotUpdate {
   @Command(/model/i)
   public onModelCommand(@Ctx() ctx: Context) {
     return this.modelCommand.handleModelCommand(ctx);
+  }
+
+  @Command(/character/i)
+  public onCharacterCommand(
+    @Ctx() ctx: Context,
+    @Message() message: TelegramTextMessage,
+  ) {
+    return this.characterCommand.handleCharacterCommand(ctx, message);
   }
 
   @On('text')
