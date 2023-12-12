@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { Character } from '@prisma/client';
 import { ERROR_MESSAGE } from 'src/common/constants';
+import { CacheService } from 'src/core/cache/cache.service';
 import { DatabaseService } from 'src/database/database.service';
 import { ZodError } from 'zod';
 
@@ -16,21 +17,38 @@ import {
   updateCharacterSchema,
 } from './dtos';
 
+const CACHE_KEY = 'characters';
+const TTL = 24 * 60 * 60 * 1000; // 24 hours in ms
+
 @Injectable()
 export class CharacterService {
   private readonly logger = new Logger(CharacterService.name);
 
-  constructor(private readonly databaseService: DatabaseService) {}
+  constructor(
+    private readonly databaseService: DatabaseService,
+    private readonly cacheService: CacheService,
+  ) {}
 
   /**
    * @description get list of predefined character prompts from db
    * @param {number} limit limit number of retrieved items (@default limit 10)
    * @returns {Promise<Character[]>} list of characters
    */
-  public findAll(limit: number = 10): Promise<Character[]> {
-    return this.databaseService.character.findMany({
+  public async findAll(limit: number = 10): Promise<Character[]> {
+    const cachedCharacters =
+      await this.cacheService.get<Character[]>(CACHE_KEY);
+
+    if (cachedCharacters) {
+      return cachedCharacters;
+    }
+
+    const res = await this.databaseService.character.findMany({
       take: limit,
     });
+
+    await this.cacheService.set(CACHE_KEY, res, TTL);
+
+    return res;
   }
 
   /**
@@ -61,6 +79,9 @@ export class CharacterService {
           prompt: character.prompt,
         },
       });
+
+      // invalidate cache
+      await this.cacheService.del(CACHE_KEY);
 
       return createdCharacter;
     } catch (err: any) {
@@ -125,6 +146,9 @@ export class CharacterService {
           prompt: prompt ?? undefined,
         },
       });
+
+      // invalidate cache
+      await this.cacheService.del(CACHE_KEY);
 
       return updatedCharacter;
     } catch (err: any) {

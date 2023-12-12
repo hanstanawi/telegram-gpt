@@ -14,13 +14,13 @@ jest.mock('../openai.lib', () => {
   };
 });
 
+const mockCacheService = {
+  get: jest.fn(),
+  set: jest.fn(),
+};
+
 describe('OpenAiService', () => {
   let service: OpenAiModelService;
-
-  const mockCacheService = {
-    get: jest.fn(),
-    set: jest.fn(),
-  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
