@@ -30,8 +30,11 @@ export class BotUpdate {
   }
 
   @Command(/model/i)
-  public onModelCommand(@Ctx() ctx: Context) {
-    return this.modelCommand.handleModelCommand(ctx);
+  public onModelCommand(
+    @Ctx() ctx: Context,
+    @Message() message: TelegramTextMessage,
+  ) {
+    this.modelCommand.handleModelCommand(ctx, message);
   }
 
   @Command(/character/i)
@@ -39,7 +42,7 @@ export class BotUpdate {
     @Ctx() ctx: Context,
     @Message() message: TelegramTextMessage,
   ) {
-    return this.characterCommand.handleCharacterCommand(ctx, message);
+    this.characterCommand.handleCharacterCommand(ctx, message);
   }
 
   @On('text')

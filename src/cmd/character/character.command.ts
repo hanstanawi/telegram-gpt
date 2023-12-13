@@ -1,10 +1,10 @@
 import { Injectable, Logger } from '@nestjs/common';
+import { SELECTION_TYPE } from 'src/common/constants';
 import type { TelegramTextMessage } from 'src/common/types';
 import { generateArrayChunk } from 'src/common/utils';
+import { transformListToKeyboardButtons } from 'src/common/utils/telegram.utils';
 import { CharacterService } from 'src/modules/character/character.service';
 import { Context } from 'telegraf';
-
-import { transformCharactersToKeyboardButtons } from './character.utils';
 
 @Injectable()
 export class CharacterCommand {
@@ -29,8 +29,10 @@ export class CharacterCommand {
         return ctx.reply(error);
       }
 
-      const availableCharacters =
-        transformCharactersToKeyboardButtons(characters);
+      const availableCharacters = transformListToKeyboardButtons(
+        characters,
+        SELECTION_TYPE.CHARACTER,
+      );
 
       return ctx.sendMessage('Select your character prompt', {
         reply_markup: {

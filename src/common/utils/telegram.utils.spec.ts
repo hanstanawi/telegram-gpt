@@ -1,9 +1,10 @@
 import { Character } from '@prisma/client';
 
-import { transformCharactersToKeyboardButtons } from './character.utils';
+import { SELECTION_TYPE } from '../constants';
+import { transformListToKeyboardButtons } from './telegram.utils';
 
-describe('Character command utility functions', () => {
-  describe('Characters keyboard buttons', () => {
+describe('Telegram utility functions', () => {
+  describe('Inline keyboard buttons', () => {
     it('should generate inline keyboard buttons from characters', () => {
       const mockCharacters: Character[] = [
         {
@@ -22,8 +23,10 @@ describe('Character command utility functions', () => {
         },
       ];
 
-      const keyboardButtons =
-        transformCharactersToKeyboardButtons(mockCharacters);
+      const keyboardButtons = transformListToKeyboardButtons(
+        mockCharacters,
+        SELECTION_TYPE.CHARACTER,
+      );
 
       expect(keyboardButtons).toEqual([
         {
