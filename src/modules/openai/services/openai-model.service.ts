@@ -29,8 +29,13 @@ export class OpenAiModelService {
 
       if (!cachedModels) {
         const models = await this.openaiModelInstance.list();
-        await this.cacheService.set(OPENAI_MODELS_CACHE, models, TTL);
-        return models.data;
+        // filter for models that available with chat completions api
+        // currently only gpt models
+        const filteredModels = models.data.filter((model) =>
+          model.id.match(/gpt/),
+        );
+        await this.cacheService.set(OPENAI_MODELS_CACHE, filteredModels, TTL);
+        return filteredModels;
       }
 
       return cachedModels;
