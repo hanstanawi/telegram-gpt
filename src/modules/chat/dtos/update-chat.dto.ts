@@ -6,6 +6,7 @@ export const updateChatSchema = z.object({
   firstName: z.string().optional(),
   lastName: z.string().optional(),
   characterId: z.string().optional(),
+  voiceId: z.string().optional(),
 });
 
 export class UpdateChatDto extends createZodDto(updateChatSchema) {}

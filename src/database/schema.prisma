@@ -19,7 +19,8 @@ model Chat {
   updatedAt   DateTime   @updatedAt()
   messages    Message[] // One-to-many
   model       Model? // One-to-one
-  voice       Voice? // One-to-one
+  voiceId     String?
+  voice       Voice?     @relation(fields: [voiceId], references: [id]) // Many-to-one
   characterId String?
   character   Character? @relation(fields: [characterId], references: [id]) // Many-to-one
 }
@@ -36,11 +37,9 @@ model Character {
 model Voice {
   id        String   @id @default(cuid())
   name      String
+  chats     Chat[] // One-to-many
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt()
-
-  chat   Chat   @relation(fields: [chatId], references: [id])
-  chatId BigInt @unique
 }
 
 model Model {

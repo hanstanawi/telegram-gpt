@@ -116,6 +116,7 @@ export class ChatService {
           firstName: chat.firstName,
           lastName: chat.lastName,
           characterId: chat.characterId,
+          voiceId: chat.voiceId,
         },
       });
 
