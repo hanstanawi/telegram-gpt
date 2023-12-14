@@ -5,6 +5,7 @@ import { ModelCommand } from 'src/cmd/model/model.command';
 import { ResetCommand } from 'src/cmd/reset/reset.command';
 import { StartCommand } from 'src/cmd/start/start.command';
 import { TextCommand } from 'src/cmd/text/text.command';
+import { VoiceCommand } from 'src/cmd/voice/voice.command';
 import type { TelegramTextMessage } from 'src/common/types';
 import type { Context } from 'telegraf';
 
@@ -17,6 +18,7 @@ export class BotUpdate {
     private readonly modelCommand: ModelCommand,
     private readonly startCommand: StartCommand,
     private readonly resetCommand: ResetCommand,
+    private readonly voiceCommand: VoiceCommand,
   ) {}
 
   @Start()
@@ -43,6 +45,14 @@ export class BotUpdate {
     @Message() message: TelegramTextMessage,
   ) {
     this.characterCommand.handleCharacterCommand(ctx, message);
+  }
+
+  @Command(/voice/i)
+  public onVoiceCommand(
+    @Ctx() ctx: Context,
+    @Message() message: TelegramTextMessage,
+  ) {
+    this.voiceCommand.handleVoiceCommand(ctx, message);
   }
 
   @On('text')

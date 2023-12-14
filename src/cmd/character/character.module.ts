@@ -5,4 +5,4 @@ import { CharacterService } from 'src/modules/character/character.service';
   providers: [CharacterService],
   exports: [CharacterService],
 })
-export class CharacterModule {}
+export class CharacterCmdModule {}
