@@ -3,25 +3,21 @@ import { SELECTION_TYPE } from 'src/common/constants';
 import { TelegramTextMessage } from 'src/common/types';
 import { generateArrayChunk } from 'src/common/utils';
 import { transformListToKeyboardButtons } from 'src/common/utils/telegram.utils';
-import { VOICE_OPTIONS } from 'src/modules/voice/voice.constants';
+import { VoiceService } from 'src/modules/voice/voice.service';
 import { Context } from 'telegraf';
 
 @Injectable()
 export class VoiceCommand {
   private readonly logger = new Logger(VoiceCommand.name);
 
-  constructor() {}
+  constructor(private readonly voiceService: VoiceService) {}
 
   public async handleVoiceCommand(ctx: Context, message: TelegramTextMessage) {
     if (!message.text) {
       return ctx.reply('Please input a proper model command');
     }
 
-    const voices = Object.values(VOICE_OPTIONS).map((voice) => {
-      return {
-        id: voice,
-      };
-    });
+    const voices = await this.voiceService.findAll();
 
     if (!voices) {
       const error = 'No available models';

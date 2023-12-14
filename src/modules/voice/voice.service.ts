@@ -6,27 +6,59 @@ import {
 } from '@nestjs/common';
 import { Voice } from '@prisma/client';
 import { ERROR_MESSAGE } from 'src/common/constants';
+import { CacheService } from 'src/core/cache/cache.service';
 import { DatabaseService } from 'src/database/database.service';
 import { ZodError } from 'zod';
 
-import { CreateVoiceDto, createVoiceSchema } from './dtos';
-import { UpdateVoiceDto, updateVoiceSchema } from './dtos/update-voice.dto';
+import {
+  CreateVoiceDto,
+  createVoiceSchema,
+  UpdateVoiceDto,
+  updateVoiceSchema,
+} from './dtos';
+
+const CACHE_KEY = 'voices';
+const TTL = 24 * 60 * 60 * 1000; // 24 hours in ms
 
 @Injectable()
 export class VoiceService {
   private readonly logger = new Logger(VoiceService.name);
 
-  constructor(private readonly databaseService: DatabaseService) {}
+  constructor(
+    private readonly databaseService: DatabaseService,
+    private readonly cacheService: CacheService,
+  ) {}
 
   /**
-   * @description get voice data of a chat instance
-   * @param {number} chatId telegram chat id
-   * @returns {Promise<Voice | null>} found voice data
+   * @description get list of predefined voices from db
+   * @param {number} limit limit number of retrieved items (@default limit 10)
+   * @returns {Promise<Character[]>} list of voices
    */
-  public findOneByChatId(chatId: number): Promise<Voice | null> {
+  public async findAll(limit: number = 10): Promise<Voice[]> {
+    const cachedVoices = await this.cacheService.get<Voice[]>(CACHE_KEY);
+
+    if (cachedVoices) {
+      return cachedVoices;
+    }
+
+    const res = await this.databaseService.voice.findMany({
+      take: limit,
+    });
+
+    await this.cacheService.set(CACHE_KEY, res, TTL);
+
+    return res;
+  }
+
+  /**
+   * @description get voice data by character id
+   * @param {string} id voice  id
+   * @returns {Promise<Voice | null>} retrieved voice data, null if not found
+   */
+  public findOneById(id: string): Promise<Voice | null> {
     return this.databaseService.voice.findUnique({
       where: {
-        chatId,
+        id,
       },
     });
   }
@@ -43,9 +75,11 @@ export class VoiceService {
       const createdVoice = await this.databaseService.voice.create({
         data: {
           name: voice.name,
-          chatId: voice.chatId,
         },
       });
+
+      // invalidate cache
+      await this.cacheService.del(CACHE_KEY);
 
       return createdVoice;
     } catch (err: any) {
@@ -80,29 +114,33 @@ export class VoiceService {
 
   /**
    * @description update voice by chat id
+   * @param {string} id voice id
    * @param {UpdateVoiceDto} payload update voice payload
    * @returns {Promise<Voice>} updated voice data
    */
-  public async updateOne(payload: UpdateVoiceDto): Promise<Voice> {
+  public async updateOne(id: string, payload: UpdateVoiceDto): Promise<Voice> {
     try {
       const voice = updateVoiceSchema.parse(payload);
-      const { name, chatId } = voice;
-      const existingVoice = await this.findOneByChatId(chatId);
+      const { name } = voice;
+      const existingVoice = await this.findOneById(id);
 
       if (!existingVoice) {
         const exception = new NotFoundException(
-          `Voice with chat id of ${chatId} does not exist`,
+          `Voice with id of ${id} does not exist`,
         );
         this.logger.error(exception.message, exception.stack);
         throw exception;
       }
 
       const updatedVoice = await this.databaseService.voice.update({
-        where: { chatId },
+        where: { id },
         data: {
           name: name ?? undefined,
         },
       });
+
+      // invalidate cache
+      await this.cacheService.del(CACHE_KEY);
 
       return updatedVoice;
     } catch (err: any) {
@@ -137,15 +175,15 @@ export class VoiceService {
 
   /**
    * @description remove voice by chat id
-   * @param {number} chatId telegram chat id
+   * @param {string} id voice id
    * @returns {Promise<Voice>} removed voice
    */
-  public async removeOne(chatId: number): Promise<Voice> {
-    const existingVoice = await this.findOneByChatId(chatId);
+  public async removeOne(id: string): Promise<Voice> {
+    const existingVoice = await this.findOneById(id);
 
     if (!existingVoice) {
       const exception = new NotFoundException(
-        `Voice with chat id of ${chatId} does not exist`,
+        `Voice with id of ${id} does not exist`,
       );
       this.logger.error(exception.message, exception.stack);
       throw exception;
@@ -153,7 +191,7 @@ export class VoiceService {
 
     return this.databaseService.voice.delete({
       where: {
-        chatId,
+        id,
       },
     });
   }
