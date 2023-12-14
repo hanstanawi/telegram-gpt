@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { CacheService } from 'src/core/cache/cache.service';
 import { DatabaseService } from 'src/database/database.service';
 
 import { VoiceService } from './voice.service';
@@ -20,6 +21,11 @@ const mockDatabaseService = {
   },
 };
 
+const mockCacheService = {
+  get: jest.fn(),
+  set: jest.fn(),
+};
+
 describe('VoiceService', () => {
   let service: VoiceService;
 
@@ -28,6 +34,7 @@ describe('VoiceService', () => {
       providers: [
         VoiceService,
         { provide: DatabaseService, useValue: mockDatabaseService },
+        { provide: CacheService, useValue: mockCacheService },
       ],
     }).compile();
 
