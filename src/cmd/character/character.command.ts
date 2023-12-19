@@ -36,7 +36,7 @@ export class CharacterCommand {
 
       return ctx.sendMessage('Select your character prompt', {
         reply_markup: {
-          inline_keyboard: generateArrayChunk(availableCharacters),
+          inline_keyboard: generateArrayChunk(availableCharacters, 1),
         },
       });
     } catch (err: any) {
