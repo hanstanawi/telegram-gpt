@@ -2,8 +2,10 @@ import { Injectable, Logger } from '@nestjs/common';
 import { SELECTION_TYPE } from 'src/common/constants';
 import type { CallbackData, CallbackDataQuery } from 'src/common/types';
 import { parseJson } from 'src/common/utils';
+import { CharacterService } from 'src/modules/character/character.service';
 import { ChatService } from 'src/modules/chat/chat.service';
 import { ModelService } from 'src/modules/model/model.service';
+import { VoiceService } from 'src/modules/voice/voice.service';
 import type { Context } from 'telegraf';
 
 @Injectable()
@@ -12,7 +14,9 @@ export class CallbackCommand {
 
   constructor(
     private readonly chatService: ChatService,
+    private readonly characterService: CharacterService,
     private readonly modelService: ModelService,
+    private readonly voiceService: VoiceService,
   ) {}
 
   /**
@@ -65,15 +69,23 @@ export class CallbackCommand {
       switch (parsedCallbackData.type) {
         case SELECTION_TYPE.CHARACTER: {
           const characterId = parsedCallbackData.data;
+          const character =
+            await this.characterService.findOneById(characterId);
+
+          if (!character) {
+            return ctx.sendMessage(`Selected character prompt does not exist`);
+          }
+
           await this.chatService.updateOne(chat.id, {
             id: chat.id,
             characterId,
           });
 
           this.logger.log(
-            `Chat id: ${chat.id}, First name: ${existingChat.firstName} enter ${characterId} as character prompt`,
+            `Chat id: ${chat.id}, First name: ${existingChat.firstName} enter ${character.name} as character prompt`,
           );
-          return ctx.sendMessage(`Character prompt added`);
+
+          return ctx.sendMessage(`You selected ${character.name} model`);
         }
         case SELECTION_TYPE.MODEL: {
           const modelName = parsedCallbackData.data;
@@ -104,15 +116,21 @@ export class CallbackCommand {
         }
         case SELECTION_TYPE.VOICE: {
           const voiceId = parsedCallbackData.data;
+          const voice = await this.voiceService.findOneById(voiceId);
+
+          if (!voice) {
+            return ctx.sendMessage(`Selected voice does not exist`);
+          }
+
           await this.chatService.updateOne(chat.id, {
             id: chat.id,
             voiceId,
           });
 
           this.logger.log(
-            `Chat id: ${chat.id}, First name: ${existingChat.firstName} selected ${voiceId} as character prompt`,
+            `Chat id: ${chat.id}, First name: ${existingChat.firstName} selected ${voice.name} as character prompt`,
           );
-          return ctx.sendMessage(`Character prompt added`);
+          return ctx.sendMessage(`You selected ${voice.name} voice profile`);
         }
         default:
           return ctx.sendMessage('Invalid selection');
