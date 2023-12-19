@@ -27,7 +27,7 @@ model Chat {
 
 model Character {
   id        String   @id @default(cuid())
-  name      String
+  name      String   @unique
   prompt    String
   chats     Chat[] // One-to-many
   createdAt DateTime @default(now())
@@ -36,7 +36,7 @@ model Character {
 
 model Voice {
   id        String   @id @default(cuid())
-  name      String
+  name      String   @unique
   chats     Chat[] // One-to-many
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt()

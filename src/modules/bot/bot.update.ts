@@ -65,6 +65,6 @@ export class BotUpdate {
 
   @On('callback_query')
   public onCallbackQuery(@Ctx() ctx: Context) {
-    return this.callbackCommand.handleCallbackQuery(ctx);
+    this.callbackCommand.handleCallbackQuery(ctx);
   }
 }

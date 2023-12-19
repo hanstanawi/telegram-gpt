@@ -105,8 +105,8 @@ export class ModelService {
       const updatedModel = await this.databaseService.model.update({
         where: { chatId },
         data: {
-          name: name ?? undefined,
-          source: source ?? undefined,
+          name,
+          source,
         },
       });
 

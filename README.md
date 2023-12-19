@@ -33,12 +33,8 @@ A Telegram Bot named Samantha, inspired by the film "Her" that leverages Chat-GP
 - `reset` - To reset your character and bot chat history
 - `start` - To initialize your bot
 - `model` - To show the list of available models and select your model.
-- `speaker` - To show the list of available speakers.
-- `character_prompt` - To enter your bot character prompt and select predefined character. To enter custom character prompt, use: e.g. `/character_prompt i am an assistant`
-- `chub_ai` - input your chub ai url
-- `length_scale` - Range: 0.1 - 4. To enter the speed of the TTS voice speaker.
-- `noise_scale` - Range: 0 - 1. To enter the noise scale of TTS voice speaker.
-- `noise_w` - Range: 0 - 1. To control how expressive the speech is.
+- `voice` - To show the list of available speakers.
+- `character` - To enter your bot character prompt and select predefined character. To enter custom character prompt, use: e.g. `/character i am an assistant`
 
 ### Docker
 
