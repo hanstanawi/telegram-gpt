@@ -46,7 +46,7 @@ export class OpenAiAudioService {
    * @param {VoiceOption} voice voice options from openai. Reference https://platform.openai.com/docs/guides/text-to-speech/voice-options
    * @returns {Promise<Blob>} audio blob file
    */
-  public async generateAudioFromInput(
+  public async synthesizeTextToSpeech(
     textInput: string,
     voice: VoiceOption,
   ): Promise<Blob> {

@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { TelegramTextMessage } from 'src/common/types';
-import { ChatService } from 'src/modules/chat/chat.service';
+import { ChatService } from 'src/modules/chat/services';
 import { MessageService } from 'src/modules/message/message.service';
 import { ModelService } from 'src/modules/model/model.service';
 

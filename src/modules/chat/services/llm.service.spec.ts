@@ -1,30 +1,27 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ChatService } from 'src/modules/chat/services';
 
-import { StartCommand } from './start.command';
+import { ChatService } from './chat.service';
+import { LLMService } from './llm.service';
 
 const mockChatService = {
-  findAll: jest.fn(),
   findOneById: jest.fn(),
-  insertOne: jest.fn(),
-  updateOne: jest.fn(),
 };
 
-describe('StartCommand', () => {
-  let command: StartCommand;
+describe('LLMService', () => {
+  let service: LLMService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        StartCommand,
+        LLMService,
         { provide: ChatService, useValue: mockChatService },
       ],
     }).compile();
 
-    command = module.get<StartCommand>(StartCommand);
+    service = module.get<LLMService>(LLMService);
   });
 
   it('should be defined', () => {
-    expect(command).toBeDefined();
+    expect(service).toBeDefined();
   });
 });

@@ -3,7 +3,7 @@ import { SELECTION_TYPE } from 'src/common/constants';
 import type { CallbackData, CallbackDataQuery } from 'src/common/types';
 import { parseJson } from 'src/common/utils';
 import { CharacterService } from 'src/modules/character/character.service';
-import { ChatService } from 'src/modules/chat/chat.service';
+import { ChatService } from 'src/modules/chat/services';
 import { ModelService } from 'src/modules/model/model.service';
 import { VoiceService } from 'src/modules/voice/voice.service';
 import type { Context } from 'telegraf';
@@ -137,7 +137,9 @@ export class CallbackCommand {
       }
     } catch (err: any) {
       this.logger.error({ message: err.message, error: JSON.stringify(err) });
-      return ctx.reply(`Failed retrieving models. Issue: ${err.message}`);
+      return ctx.reply(
+        `Failed handling callback option. Issue: ${err.message}`,
+      );
     }
   }
 }
