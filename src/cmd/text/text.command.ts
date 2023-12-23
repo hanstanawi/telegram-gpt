@@ -4,8 +4,7 @@ import {
   UnprocessableEntityException,
 } from '@nestjs/common';
 import { type TelegramTextMessage } from 'src/common/types';
-import { ChatService, LLMService } from 'src/modules/chat/services';
-import { MessageService } from 'src/modules/message/message.service';
+import { LLMService } from 'src/modules/chat/services';
 import { Context } from 'telegraf';
 
 @Injectable()
@@ -36,7 +35,7 @@ export class TextCommand {
     }
 
     try {
-      const [botReply, messagesHistory] = await Promise.all([
+      const [botReply] = await Promise.all([
         this.llmService.reply(chat.id, text),
         ctx.sendChatAction('typing'), // gives better ux by showing 'typing...' message to user
       ]);

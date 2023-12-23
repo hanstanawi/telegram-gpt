@@ -5,11 +5,7 @@ import {
 } from '@nestjs/common';
 
 import openai from '../openai.lib';
-import type {
-  ChatCompletionResult,
-  CompletionMessage,
-  OpenAIModel,
-} from '../openai.types';
+import type { ChatCompletionResult, CompletionMessage } from '../openai.types';
 
 @Injectable()
 export class OpenAiChatService {

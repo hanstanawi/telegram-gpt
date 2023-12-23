@@ -1,5 +1,11 @@
-import { Logger, NotFoundException } from '@nestjs/common';
+import {
+  Logger,
+  NotFoundException,
+  UnprocessableEntityException,
+} from '@nestjs/common';
 import { Message } from '@prisma/client';
+import { isWithinTokenLimit } from 'gpt-tokenizer';
+import { ROLE } from 'src/common/constants';
 import { CharacterService } from 'src/modules/character/character.service';
 import { MessageService } from 'src/modules/message/message.service';
 import { ModelService } from 'src/modules/model/model.service';
@@ -9,7 +15,7 @@ import { OpenAiChatService } from 'src/modules/openai/services';
 import { getMessagesCharacters } from '../chat.utils';
 import { ChatService } from './chat.service';
 
-export const MAX_MODEL_TOKEN = 5000; // could be changed
+export const MODEL_TOKEN_LIMIT = 4096; // each gpt model has various max token val. We use the bare minimum
 
 /**
  * @description Large Language Model (LLM) service to generate llm reply and prompt
@@ -27,19 +33,21 @@ export class LLMService {
 
   private async generateChatCompletionMessages(
     chatId: number,
-    messages: Message[],
     characterPrompt: string,
+    messages: Message[],
   ) {
-    const messagesCharactersCount = getMessagesCharacters(
-      characterPrompt,
-      messages,
+    const messagesCharacters = getMessagesCharacters(characterPrompt, messages);
+
+    const isWithinTheTokenLimit = isWithinTokenLimit(
+      messagesCharacters,
+      MODEL_TOKEN_LIMIT,
     );
 
-    const isMaxToken = messagesCharactersCount > MAX_MODEL_TOKEN;
-
-    if (isMaxToken) {
-      // reset message history
+    // Some model has some token limitation.
+    // Therefore, we need to restart the previous unrelated messages history
+    if (!isWithinTheTokenLimit) {
       // TODO: add cache to message service
+      // reset message history
       await this.messageService.removeAll(chatId);
 
       const lastBotMessage = messages[messages.length - 1];
@@ -87,11 +95,25 @@ export class LLMService {
     }
 
     const chatMessages: CompletionMessage[] = [
-      { role: 'system', content: character.prompt },
+      { role: ROLE.SYSTEM, content: character.prompt },
     ];
 
     if (messages.length) {
+      const messagesHistory = await this.generateChatCompletionMessages(
+        chatId,
+        character.prompt,
+        messages,
+      );
+
+      for (const msg of messagesHistory) {
+        chatMessages.push({
+          content: msg.text,
+          role: msg.role === ROLE.USER ? ROLE.USER : ROLE.ASSISTANT,
+        });
+      }
     }
+
+    chatMessages.push({ role: ROLE.USER, content: text });
 
     return chatMessages;
   }
@@ -117,13 +139,17 @@ export class LLMService {
     const choices = botReply.choices;
 
     if (!choices.length) {
-      return 'No reply from bot';
+      const exception = new UnprocessableEntityException('No replies from bot');
+      this.logger.error(exception.message, exception.stack);
+      throw exception;
     }
 
     const [reply] = choices;
 
     if (!reply.message || !reply.message.content) {
-      return 'No reply from bot';
+      const exception = new UnprocessableEntityException('No replies from bot');
+      this.logger.error(exception.message, exception.stack);
+      throw exception;
     }
 
     return reply.message.content;
