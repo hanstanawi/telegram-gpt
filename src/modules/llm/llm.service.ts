@@ -1,4 +1,5 @@
 import {
+  Injectable,
   Logger,
   NotFoundException,
   UnprocessableEntityException,
@@ -6,36 +7,34 @@ import {
 import { Message } from '@prisma/client';
 import { isWithinTokenLimit } from 'gpt-tokenizer';
 import { ROLE } from 'src/common/constants';
-import { CharacterService } from 'src/modules/character/character.service';
 import { MessageService } from 'src/modules/message/message.service';
 import { ModelService } from 'src/modules/model/model.service';
 import { CompletionMessage } from 'src/modules/openai/openai.types';
 import { OpenAiChatService } from 'src/modules/openai/services';
 
-import { getMessagesCharacters } from '../chat.utils';
-import { ChatService } from './chat.service';
+import { ChatCompletionMessagesPayload } from './llm.types';
+import { getMessagesCharacters } from './llm.utils';
 
 export const MODEL_TOKEN_LIMIT = 4096; // each gpt model has various max token val. We use the bare minimum
 
 /**
- * @description Large Language Model (LLM) service to generate llm reply and prompt
+ * @description Large Language Model (LLM) service to generate llm reply and chat completion messages
  */
-export class LLMService {
-  private readonly logger = new Logger(LLMService.name);
+@Injectable()
+export class LlmService {
+  private readonly logger = new Logger(LlmService.name);
 
   constructor(
-    private readonly chatService: ChatService,
-    private readonly characterService: CharacterService,
     private readonly openaiChatService: OpenAiChatService,
     private readonly messageService: MessageService,
     private readonly modelService: ModelService,
   ) {}
 
-  private async generateChatCompletionMessages(
+  private async getMessagesHistory(
     chatId: number,
     characterPrompt: string,
     messages: Message[],
-  ) {
+  ): Promise<Message[]> {
     const messagesCharacters = getMessagesCharacters(characterPrompt, messages);
 
     const isWithinTheTokenLimit = isWithinTokenLimit(
@@ -59,49 +58,20 @@ export class LLMService {
     return Promise.resolve(messages);
   }
 
-  private async generatePrompt(chatId: number, text: string) {
-    // Get messages
-    const [chat, messages] = await Promise.all([
-      this.chatService.findOneById(chatId),
-      this.messageService.findAllByChatId(chatId),
-    ]);
-
-    if (!chat) {
-      const exception = new NotFoundException(
-        'Chat data not found. Please initialize your chat bot first',
-      );
-      this.logger.error(exception.message, exception.stack);
-      throw exception;
-    }
-
-    const characterId = chat.characterId;
-
-    if (!characterId) {
-      const exception = new NotFoundException(
-        'You have not initialized your character yet. Please do a /character command first',
-      );
-      this.logger.error(exception.message, exception.stack);
-      throw exception;
-    }
-
-    const character = await this.characterService.findOneById(characterId);
-
-    if (!character) {
-      const exception = new NotFoundException(
-        'You have not initialized your character yet. Please do a /character command first',
-      );
-      this.logger.error(exception.message, exception.stack);
-      throw exception;
-    }
-
+  public async generateChatCompletionMessages({
+    chatId,
+    characterPrompt,
+    text,
+    messages,
+  }: ChatCompletionMessagesPayload) {
     const chatMessages: CompletionMessage[] = [
-      { role: ROLE.SYSTEM, content: character.prompt },
+      { role: ROLE.SYSTEM, content: characterPrompt },
     ];
 
     if (messages.length) {
-      const messagesHistory = await this.generateChatCompletionMessages(
+      const messagesHistory = await this.getMessagesHistory(
         chatId,
-        character.prompt,
+        characterPrompt,
         messages,
       );
 
@@ -118,9 +88,7 @@ export class LLMService {
     return chatMessages;
   }
 
-  public async reply(chatId: number, text: string) {
-    const messagesPrompt = await this.generatePrompt(chatId, text);
-
+  public async reply(chatId: number, messages: CompletionMessage[]) {
     const model = await this.modelService.findOneByChatId(chatId);
 
     if (!model) {
@@ -133,7 +101,7 @@ export class LLMService {
 
     const botReply = await this.openaiChatService.generateChatCompletion(
       model.name,
-      messagesPrompt,
+      messages,
     );
 
     const choices = botReply.choices;

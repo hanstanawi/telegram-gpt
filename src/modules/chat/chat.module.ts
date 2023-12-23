@@ -1,12 +1,9 @@
 import { Module } from '@nestjs/common';
 
-import { MessageModule } from '../message/message.module';
-import { OpenAiModule } from '../openai/openai.module';
-import { ChatService, LLMService } from './services';
+import { ChatService } from './chat.service';
 
 @Module({
-  imports: [OpenAiModule, MessageModule],
-  providers: [ChatService, LLMService],
-  exports: [ChatService, LLMService],
+  providers: [ChatService],
+  exports: [ChatService],
 })
 export class ChatModule {}

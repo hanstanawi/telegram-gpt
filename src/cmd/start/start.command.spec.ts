@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ChatService } from 'src/modules/chat/services';
+import { ChatService } from 'src/modules/chat/chat.service';
 
 import { StartCommand } from './start.command';
 

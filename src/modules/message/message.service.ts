@@ -4,7 +4,12 @@ import { ERROR_MESSAGE } from 'src/common/constants';
 import { DatabaseService } from 'src/database/database.service';
 import { ZodError } from 'zod';
 
-import { CreateMessageDto, createMessageSchema } from './dtos';
+import {
+  CreateMessageDto,
+  createMessageSchema,
+  CreateMessagesDto,
+  createMessagesSchema,
+} from './dtos';
 import { DeleteMessageResponse } from './message.types';
 
 @Injectable()
@@ -57,6 +62,50 @@ export class MessageService {
       });
 
       return createdMessage;
+    } catch (err: any) {
+      if (err instanceof ZodError) {
+        const exception = new ForbiddenException({
+          message: err.issues.length
+            ? err.issues[0].message
+            : ERROR_MESSAGE.BAD_REQUEST,
+          error: err.issues,
+        });
+
+        this.logger.error(
+          {
+            message: exception.message,
+            error: JSON.stringify(err),
+            statusCode: exception.getStatus(),
+          },
+          exception.stack,
+        );
+
+        throw exception;
+      }
+
+      this.logger.error({
+        message: err.message,
+        error: JSON.stringify(err),
+      });
+
+      throw err;
+    }
+  }
+
+  /**
+   * @description insert multiple messages to db
+   * @param {CreateMessagesDto} payload messages array
+   * @returns {Promise<number>} number of created messages
+   */
+  public async insertMany(payload: CreateMessagesDto): Promise<number> {
+    try {
+      const messages = createMessagesSchema.parse(payload);
+
+      const createdMessages = await this.databaseService.message.createMany({
+        data: messages,
+      });
+
+      return createdMessages.count;
     } catch (err: any) {
       if (err instanceof ZodError) {
         const exception = new ForbiddenException({

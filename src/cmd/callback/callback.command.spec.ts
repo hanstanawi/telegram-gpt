@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CharacterService } from 'src/modules/character/character.service';
-import { ChatService } from 'src/modules/chat/services';
+import { ChatService } from 'src/modules/chat/chat.service';
 import { ModelService } from 'src/modules/model/model.service';
 import { VoiceService } from 'src/modules/voice/voice.service';
 

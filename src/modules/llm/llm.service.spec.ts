@@ -1,24 +1,24 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { ChatService } from './chat.service';
-import { LLMService } from './llm.service';
+import { ChatService } from '../chat/chat.service';
+import { LlmService } from './llm.service';
 
 const mockChatService = {
   findOneById: jest.fn(),
 };
 
-describe('LLMService', () => {
-  let service: LLMService;
+describe('LlmService', () => {
+  let service: LlmService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        LLMService,
+        LlmService,
         { provide: ChatService, useValue: mockChatService },
       ],
     }).compile();
 
-    service = module.get<LLMService>(LLMService);
+    service = module.get<LlmService>(LlmService);
   });
 
   it('should be defined', () => {

@@ -4,7 +4,7 @@ import {
   UnprocessableEntityException,
 } from '@nestjs/common';
 import { TelegramTextMessage } from 'src/common/types';
-import { ChatService } from 'src/modules/chat/services';
+import { ChatService } from 'src/modules/chat/chat.service';
 
 @Injectable()
 export class StartCommand {

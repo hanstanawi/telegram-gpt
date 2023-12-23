@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CharacterModule } from 'src/modules/character/character.module';
 import { ChatModule } from 'src/modules/chat/chat.module';
+import { LlmModule } from 'src/modules/llm/llm.module';
 import { MessageModule } from 'src/modules/message/message.module';
 import { ModelModule } from 'src/modules/model/model.module';
 import { OpenAiModule } from 'src/modules/openai/openai.module';
@@ -19,6 +20,7 @@ import { VoiceCommand } from './voice/voice.command';
     OpenAiModule,
     CharacterModule,
     ChatModule,
+    LlmModule,
     MessageModule,
     ModelModule,
     VoiceModule,

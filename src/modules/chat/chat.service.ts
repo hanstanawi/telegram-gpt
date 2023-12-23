@@ -11,7 +11,7 @@ import {
   createChatSchema,
   UpdateChatDto,
   updateChatSchema,
-} from '../dtos';
+} from './dtos';
 
 @Injectable()
 export class ChatService {
