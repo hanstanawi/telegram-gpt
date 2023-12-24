@@ -1,10 +1,20 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { ChatService } from '../chat/chat.service';
+import { MessageService } from '../message/message.service';
+import { ModelService } from '../model/model.service';
+import { OpenAiChatService } from '../openai/services';
 import { LlmService } from './llm.service';
 
-const mockChatService = {
-  findOneById: jest.fn(),
+const mockOpenAiChatService = {
+  generateChatCompletion: jest.fn(),
+};
+
+const mockModelService = {
+  findOneByChatId: jest.fn(),
+};
+
+const mockMessageService = {
+  removeAll: jest.fn(),
 };
 
 describe('LlmService', () => {
@@ -14,7 +24,9 @@ describe('LlmService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         LlmService,
-        { provide: ChatService, useValue: mockChatService },
+        { provide: OpenAiChatService, useValue: mockOpenAiChatService },
+        { provide: ModelService, useValue: mockModelService },
+        { provide: MessageService, useValue: mockMessageService },
       ],
     }).compile();
 
