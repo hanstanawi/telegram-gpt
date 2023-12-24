@@ -6,6 +6,19 @@ import { MessageService } from 'src/modules/message/message.service';
 
 import { TextCommand } from './text.command';
 
+jest.mock('src/modules/openai/openai.lib', () => {
+  return {
+    __esModule: true,
+    default: {
+      chat: {
+        completions: {
+          create: jest.fn(),
+        },
+      },
+    },
+  };
+});
+
 const mockChatService = {
   findOneById: jest.fn(),
 };

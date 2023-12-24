@@ -5,7 +5,7 @@ import { ModelService } from '../model/model.service';
 import { OpenAiChatService } from '../openai/services';
 import { LlmService } from './llm.service';
 
-jest.mock('src/modules/openai/openai.lib', () => {
+jest.mock('../openai/openai.lib', () => {
   return {
     __esModule: true,
     default: {
@@ -18,10 +18,6 @@ jest.mock('src/modules/openai/openai.lib', () => {
   };
 });
 
-const mockOpenAiChatService = {
-  generateChatCompletion: jest.fn(),
-};
-
 const mockModelService = {
   findOneByChatId: jest.fn(),
 };
@@ -32,6 +28,10 @@ const mockMessageService = {
 
 describe('LlmService', () => {
   let service: LlmService;
+
+  const mockOpenAiChatService = {
+    generateChatCompletion: jest.fn(),
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
