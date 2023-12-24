@@ -5,11 +5,7 @@ import {
 } from '@nestjs/common';
 
 import openai from '../openai.lib';
-import type {
-  ChatCompletionResult,
-  CompletionMessage,
-  OpenAIModel,
-} from '../openai.types';
+import type { ChatCompletionResult, CompletionMessage } from '../openai.types';
 
 @Injectable()
 export class OpenAiChatService {
@@ -18,18 +14,18 @@ export class OpenAiChatService {
 
   /**
    * @description generate chat completion with openai chat completion api
-   * @param {OpenAIModel} model openai model selection
+   * @param {string} model openai model id | name
    * @param {CompletionMessage[]} messages list of messages history between system and user
    * @returns {ChatCompletionResult} chat completion object data
    */
   public async generateChatCompletion(
-    model: OpenAIModel,
+    model: string,
     messages: CompletionMessage[],
   ): Promise<ChatCompletionResult> {
     try {
       const completion = await this.openaiChatInstance.completions.create({
         messages,
-        model: model.id,
+        model,
       });
 
       return completion;

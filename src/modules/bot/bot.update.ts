@@ -60,7 +60,7 @@ export class BotUpdate {
     @Ctx() ctx: Context,
     @Message() message: TelegramTextMessage,
   ) {
-    return this.textCommand.handleTextMessage(ctx, message);
+    this.textCommand.handleTextMessage(ctx, message);
   }
 
   @On('callback_query')
