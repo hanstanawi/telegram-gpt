@@ -5,6 +5,19 @@ import { ModelService } from '../model/model.service';
 import { OpenAiChatService } from '../openai/services';
 import { LlmService } from './llm.service';
 
+jest.mock('src/modules/openai/openai.lib', () => {
+  return {
+    __esModule: true,
+    default: {
+      chat: {
+        completions: {
+          create: jest.fn(),
+        },
+      },
+    },
+  };
+});
+
 const mockOpenAiChatService = {
   generateChatCompletion: jest.fn(),
 };
