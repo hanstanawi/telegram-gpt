@@ -16,7 +16,6 @@ import { VoiceModule } from './modules/voice/voice.module';
 
 @Module({
   imports: [
-    CoreModule,
     TelegrafModule.forRootAsync({
       botName: BOT_NAME,
       imports: [ConfigModule],
@@ -26,6 +25,7 @@ import { VoiceModule } from './modules/voice/voice.module';
       }),
       inject: [ConfigService],
     }),
+    CoreModule,
     BotModule,
     ChatModule,
     CharacterModule,

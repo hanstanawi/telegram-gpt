@@ -1,4 +1,5 @@
 import { Command, Ctx, Message, On, Start, Update } from 'nestjs-telegraf';
+import { AudioCommand } from 'src/cmd/audio/audio.command';
 import { CallbackCommand } from 'src/cmd/callback/callback.command';
 import { CharacterCommand } from 'src/cmd/character/character.command';
 import { ModelCommand } from 'src/cmd/model/model.command';
@@ -12,6 +13,7 @@ import type { Context } from 'telegraf';
 @Update()
 export class BotUpdate {
   constructor(
+    private readonly audioCommand: AudioCommand,
     private readonly callbackCommand: CallbackCommand,
     private readonly characterCommand: CharacterCommand,
     private readonly textCommand: TextCommand,
@@ -61,6 +63,14 @@ export class BotUpdate {
     @Message() message: TelegramTextMessage,
   ) {
     this.textCommand.handleTextMessage(ctx, message);
+  }
+
+  @On('voice')
+  public onVoiceMessage(
+    @Ctx() ctx: Context,
+    @Message() message: TelegramTextMessage,
+  ) {
+    this.audioCommand.handleAudioMessage(ctx, message);
   }
 
   @On('callback_query')
