@@ -7,7 +7,10 @@ import { ResetCommand } from 'src/cmd/reset/reset.command';
 import { StartCommand } from 'src/cmd/start/start.command';
 import { TextCommand } from 'src/cmd/text/text.command';
 import { VoiceCommand } from 'src/cmd/voice/voice.command';
-import type { TelegramTextMessage } from 'src/common/types';
+import type {
+  TelegramTextMessage,
+  TelegramVoiceMessage,
+} from 'src/common/types';
 import type { Context } from 'telegraf';
 
 @Update()
@@ -68,7 +71,7 @@ export class BotUpdate {
   @On('voice')
   public onVoiceMessage(
     @Ctx() ctx: Context,
-    @Message() message: TelegramTextMessage,
+    @Message() message: TelegramVoiceMessage,
   ) {
     this.audioCommand.handleAudioMessage(ctx, message);
   }

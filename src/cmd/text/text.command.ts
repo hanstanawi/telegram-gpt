@@ -100,7 +100,7 @@ export class TextCommand {
       ]);
     } catch (err: any) {
       this.logger.error({ message: err.message, error: JSON.stringify(err) });
-      return ctx.reply(`Failed retrieving models. Issue: ${err.message}`);
+      return ctx.reply(`Failed handling text message. Issue: ${err.message}`);
     }
   }
 }
