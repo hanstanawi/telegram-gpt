@@ -28,7 +28,7 @@ dependencies:
     version: 2.1.2
   nestjs-pino:
     specifier: ^3.5.0
-    version: 3.5.0(@nestjs/common@10.3.0)(pino-http@8.5.1)
+    version: 3.5.0(@nestjs/common@10.3.0)(pino-http@8.6.1)
   nestjs-telegraf:
     specifier: ^2.7.0
     version: 2.7.0(@nestjs/common@10.3.0)(@nestjs/core@10.3.0)(reflect-metadata@0.1.14)(telegraf@4.15.3)(typescript@5.3.3)
@@ -39,8 +39,8 @@ dependencies:
     specifier: ^4.24.1
     version: 4.24.1
   pino-http:
-    specifier: ^8.5.1
-    version: 8.5.1
+    specifier: ^8.6.1
+    version: 8.6.1
   pino-pretty:
     specifier: ^10.3.1
     version: 10.3.1
@@ -4819,7 +4819,7 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
 
-  /nestjs-pino@3.5.0(@nestjs/common@10.3.0)(pino-http@8.5.1):
+  /nestjs-pino@3.5.0(@nestjs/common@10.3.0)(pino-http@8.6.1):
     resolution: {integrity: sha512-IWJ3dzLVjg5istcd3Cz3rVO+gmvabfVAT1YmQgzL1HnC2hkc0H6qA6k6SZ7OIwQfewuRejYfPu3TlkxwRrqxHQ==}
     engines: {node: '>= 14'}
     requiresBuild: true
@@ -4828,7 +4828,7 @@ packages:
       pino-http: ^6.4.0 || ^7.0.0 || ^8.0.0
     dependencies:
       '@nestjs/common': 10.3.0(reflect-metadata@0.1.14)(rxjs@7.8.1)
-      pino-http: 8.5.1
+      pino-http: 8.6.1
     dev: false
 
   /nestjs-telegraf@2.7.0(@nestjs/common@10.3.0)(@nestjs/core@10.3.0)(reflect-metadata@0.1.14)(telegraf@4.15.3)(typescript@5.3.3):
@@ -5153,13 +5153,13 @@ packages:
       split2: 4.2.0
     dev: false
 
-  /pino-http@8.5.1:
-    resolution: {integrity: sha512-T/3d9YHKBYpv/QHjNy73P5BNYYkRrC2/D6CxKMecG4fKFLN+B2iC6LsKYzGRTRV+Ld3fjxFC1ca4TUGbPdzk+Q==}
+  /pino-http@8.6.1:
+    resolution: {integrity: sha512-J0hiJgUExtBXP2BjrK4VB305tHXS31sCmWJ9XJo2wPkLHa1NFPuW4V9wjG27PAc2fmBCigiNhQKpvrx+kntBPA==}
     dependencies:
       get-caller-file: 2.0.5
-      pino: 8.16.2
+      pino: 8.17.2
       pino-std-serializers: 6.2.2
-      process-warning: 2.3.1
+      process-warning: 3.0.0
     dev: false
 
   /pino-pretty@10.3.1:
@@ -5186,8 +5186,8 @@ packages:
     resolution: {integrity: sha512-cHjPPsE+vhj/tnhCy/wiMh3M3z3h/j15zHQX+S9GkTBgqJuTuJzYJ4gUyACLhDaJ7kk9ba9iRDmbH2tJU03OiA==}
     dev: false
 
-  /pino@8.16.2:
-    resolution: {integrity: sha512-2advCDGVEvkKu9TTVSa/kWW7Z3htI/sBKEZpqiHk6ive0i/7f5b1rsU8jn0aimxqfnSz5bj/nOYkwhBUn5xxvg==}
+  /pino@8.17.2:
+    resolution: {integrity: sha512-LA6qKgeDMLr2ux2y/YiUt47EfgQ+S9LznBWOJdN3q1dx2sv0ziDLUBeVpyVv17TEcGCBuWf0zNtg3M5m1NhhWQ==}
     hasBin: true
     dependencies:
       atomic-sleep: 1.0.0
@@ -5195,7 +5195,7 @@ packages:
       on-exit-leak-free: 2.1.2
       pino-abstract-transport: 1.1.0
       pino-std-serializers: 6.2.2
-      process-warning: 2.3.1
+      process-warning: 3.0.0
       quick-format-unescaped: 4.0.4
       real-require: 0.2.0
       safe-stable-stringify: 2.4.3
@@ -5255,8 +5255,8 @@ packages:
     dependencies:
       '@prisma/engines': 5.7.1
 
-  /process-warning@2.3.1:
-    resolution: {integrity: sha512-JjBvFEn7MwFbzUDa2SRtKJSsyO0LlER4V/FmwLMhBlXNbGgGxdyFCxIdMDLerWUycsVUyaoM9QFLvppFy4IWaQ==}
+  /process-warning@3.0.0:
+    resolution: {integrity: sha512-mqn0kFRl0EoqhnL0GQ0veqFHyIN1yig9RHh/InzORTUiZHFRAur+aMtRkELNwGs9aNwKS6tg/An4NYBPGwvtzQ==}
     dev: false
 
   /process@0.11.10:
