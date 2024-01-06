@@ -7,6 +7,7 @@ import { ModelModule } from 'src/modules/model/model.module';
 import { OpenAiModule } from 'src/modules/openai/openai.module';
 import { VoiceModule } from 'src/modules/voice/voice.module';
 
+import { AudioCommand } from './audio/audio.command';
 import { CallbackCommand } from './callback/callback.command';
 import { CharacterCommand } from './character/character.command';
 import { ModelCommand } from './model/model.command';
@@ -26,6 +27,7 @@ import { VoiceCommand } from './voice/voice.command';
     VoiceModule,
   ],
   providers: [
+    AudioCommand,
     CallbackCommand,
     CharacterCommand,
     ModelCommand,
@@ -35,6 +37,7 @@ import { VoiceCommand } from './voice/voice.command';
     VoiceCommand,
   ],
   exports: [
+    AudioCommand,
     CallbackCommand,
     CharacterCommand,
     ModelCommand,

@@ -13,23 +13,23 @@ export class StartCommand {
   constructor(private readonly chatService: ChatService) {}
 
   public async handleStartCommand(message: TelegramTextMessage) {
+    const chat = message.chat;
+    const user = message.from;
+
+    if (!user) {
+      const exception = new UnprocessableEntityException(
+        'Unable to find Telegram user data. Please login to Telegram before using',
+      );
+
+      this.logger.error(
+        { message: exception.message, statusCode: exception.getStatus() },
+        exception.stack,
+      );
+
+      throw exception;
+    }
+
     try {
-      const chat = message.chat;
-      const user = message.from;
-
-      if (!user) {
-        const exception = new UnprocessableEntityException(
-          'Unable to find Telegram user data. Please login to Telegram before using',
-        );
-
-        this.logger.error(
-          { message: exception.message, statusCode: exception.getStatus() },
-          exception.stack,
-        );
-
-        throw exception;
-      }
-
       const existingChat = await this.chatService.findOneById(chat.id);
 
       if (!existingChat) {

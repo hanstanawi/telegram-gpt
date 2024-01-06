@@ -44,12 +44,12 @@ export class OpenAiAudioService {
    * @description Text-to-speech (TTS) service to generate audio file from text input
    * @param {string} textInput text input
    * @param {VoiceOption} voice voice options from openai. Reference https://platform.openai.com/docs/guides/text-to-speech/voice-options
-   * @returns {Promise<Blob>} audio blob file
+   * @returns {Promise<ArrayBuffer>} audio file as array buffer
    */
   public async synthesizeTextToSpeech(
     textInput: string,
     voice: VoiceOption,
-  ): Promise<Blob> {
+  ): Promise<ArrayBuffer> {
     try {
       const response = await this.openaiAudioInstance.speech.create({
         model: 'tts-1',
@@ -57,7 +57,7 @@ export class OpenAiAudioService {
         input: textInput,
       });
 
-      return response.blob();
+      return response.arrayBuffer();
     } catch (err) {
       const exception = new UnprocessableEntityException(
         'Failed generating audio from text',
