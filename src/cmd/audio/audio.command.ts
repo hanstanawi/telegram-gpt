@@ -52,10 +52,6 @@ export class AudioCommand {
     const voiceInput = message.voice;
     const chat = message.from;
 
-    if (!voiceInput) {
-      return ctx.sendMessage('Please input a text message');
-    }
-
     if (!chat) {
       const exception = new UnprocessableEntityException(
         'Unable to find Telegram user data. Please login to Telegram before using',
