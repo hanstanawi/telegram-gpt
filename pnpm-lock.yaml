@@ -36,8 +36,8 @@ dependencies:
     specifier: ^3.0.0
     version: 3.0.0(@nestjs/common@10.3.0)(@nestjs/core@10.3.0)(zod@3.22.4)
   openai:
-    specifier: ^4.24.1
-    version: 4.24.1
+    specifier: ^4.24.3
+    version: 4.24.3
   pino-http:
     specifier: ^8.6.1
     version: 8.6.1
@@ -4985,8 +4985,8 @@ packages:
       is-wsl: 2.2.0
     dev: true
 
-  /openai@4.24.1:
-    resolution: {integrity: sha512-ezm/O3eiZMnyBqirUnWm9N6INJU1WhNtz+nK/Zj/2oyKvRz9pgpViDxa5wYOtyGYXPn1sIKBV0I/S4BDhtydqw==}
+  /openai@4.24.3:
+    resolution: {integrity: sha512-trXt1hwYmJTwQCzYZiKijOYslqvterDwohTncadZOTXXJh+XV4Jf9KcLP9dDRlXh0mAxGXaVzbpiNgAXa2khNQ==}
     hasBin: true
     dependencies:
       '@types/node': 18.18.9
