@@ -12,10 +12,6 @@ RUN npm i -g pnpm
 # Create app directory
 WORKDIR /app
 COPY --chown=node:node package.json pnpm-lock.yaml ./
-# OPENAI
-ENV OPENAI_API_KEY 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
-# TELEGRAM
-ENV TELEGRAM_BOT_TOKEN 6439406682:AAFs7Bb4JUxRCI02SuJypkiY7KwS-Cq2syc
 RUN pnpm install --frozen-lockfile --ignore-scripts
 COPY --chown=node:node . .
 RUN pnpm db:generate
