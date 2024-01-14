@@ -1,4 +1,11 @@
 PROJECT = "Telegram-GPT"
+IMAGE_NAME = "hanstanawi/telegram-gpt"
+
+docker-build: ;@echo "Building and running ${PROJECT} docker image....."; \
+	docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
+
+docker-run: ;@echo "Running ${PROJECT} docker container....."; \
+	docker run --name ${PROJECT} -d ${IMAGE_NAME}:${IMAGE_TAG}
 
 docker-up: ;@echo "Building and running ${PROJECT} containers....."; \
 	docker compose up -d --build
