@@ -5,7 +5,7 @@ import { getBotToken } from 'nestjs-telegraf';
 import { AppModule } from './app.module';
 import { BOT_NAME } from './common/constants';
 
-const DEFAULT_PORT = 80;
+const DEFAULT_PORT = 3333;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
