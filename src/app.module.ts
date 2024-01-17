@@ -22,6 +22,15 @@ import { VoiceModule } from './modules/voice/voice.module';
       useFactory: async (configService: ConfigService) => ({
         include: [BotModule],
         token: configService.get('TELEGRAM_BOT_TOKEN') as string,
+        launchOptions:
+          configService.get('NODE_ENV') === 'development'
+            ? false
+            : {
+                webhook: {
+                  domain: '0.0.0.0',
+                  hookPath: '/bot-callback',
+                },
+              },
       }),
       inject: [ConfigService],
     }),
