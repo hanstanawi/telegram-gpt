@@ -3,6 +3,7 @@ import { AudioCommand } from 'src/cmd/audio/audio.command';
 import { CallbackCommand } from 'src/cmd/callback/callback.command';
 import { CharacterCommand } from 'src/cmd/character/character.command';
 import { ModelCommand } from 'src/cmd/model/model.command';
+import { ProfileCommand } from 'src/cmd/profile/profile.command';
 import { ResetCommand } from 'src/cmd/reset/reset.command';
 import { StartCommand } from 'src/cmd/start/start.command';
 import { TextCommand } from 'src/cmd/text/text.command';
@@ -21,6 +22,7 @@ export class BotUpdate {
     private readonly characterCommand: CharacterCommand,
     private readonly textCommand: TextCommand,
     private readonly modelCommand: ModelCommand,
+    private readonly profileCommand: ProfileCommand,
     private readonly startCommand: StartCommand,
     private readonly resetCommand: ResetCommand,
     private readonly voiceCommand: VoiceCommand,
@@ -58,6 +60,14 @@ export class BotUpdate {
     @Message() message: TelegramTextMessage,
   ) {
     this.voiceCommand.handleVoiceCommand(ctx, message);
+  }
+
+  @Command(/profile/i)
+  public onProfileCommand(
+    @Ctx() ctx: Context,
+    @Message() message: TelegramTextMessage,
+  ) {
+    this.profileCommand.handleProfileCommand(ctx, message);
   }
 
   @On('text')

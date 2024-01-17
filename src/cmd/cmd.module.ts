@@ -11,6 +11,7 @@ import { AudioCommand } from './audio/audio.command';
 import { CallbackCommand } from './callback/callback.command';
 import { CharacterCommand } from './character/character.command';
 import { ModelCommand } from './model/model.command';
+import { ProfileCommand } from './profile/profile.command';
 import { ResetCommand } from './reset/reset.command';
 import { StartCommand } from './start/start.command';
 import { TextCommand } from './text/text.command';
@@ -34,6 +35,7 @@ import { VoiceCommand } from './voice/voice.command';
     ResetCommand,
     StartCommand,
     TextCommand,
+    ProfileCommand,
     VoiceCommand,
   ],
   exports: [
@@ -44,6 +46,7 @@ import { VoiceCommand } from './voice/voice.command';
     ResetCommand,
     StartCommand,
     TextCommand,
+    ProfileCommand,
     VoiceCommand,
   ],
 })
