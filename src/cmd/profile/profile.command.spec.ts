@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { CharacterService } from 'src/modules/character/character.service';
 import { ChatService } from 'src/modules/chat/chat.service';
 import { MessageService } from 'src/modules/message/message.service';
 import { ModelService } from 'src/modules/model/model.service';
@@ -34,6 +35,14 @@ const mockVoiceService = {
   removeOne: jest.fn(),
 };
 
+const mockCharacterService = {
+  findAll: jest.fn(),
+  findOneById: jest.fn(),
+  insertOne: jest.fn(),
+  updateOne: jest.fn(),
+  removeOne: jest.fn(),
+};
+
 describe('ProfileCommand', () => {
   let command: ProfileCommand;
 
@@ -42,6 +51,7 @@ describe('ProfileCommand', () => {
       providers: [
         ProfileCommand,
         { provide: ChatService, useValue: mockChatService },
+        { provide: CharacterService, useValue: mockCharacterService },
         { provide: MessageService, useValue: mockMessageService },
         { provide: ModelService, useValue: mockModelService },
         { provide: VoiceService, useValue: mockVoiceService },
