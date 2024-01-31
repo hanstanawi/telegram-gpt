@@ -50,4 +50,8 @@ describe('ProfileCommand', () => {
 
     command = module.get<ProfileCommand>(ProfileCommand);
   });
+
+  it('should be defined', () => {
+    expect(command).toBeDefined();
+  });
 });
