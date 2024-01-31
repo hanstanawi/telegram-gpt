@@ -35,6 +35,7 @@ A Telegram Bot named Samantha, inspired by the film "Her" that leverages Chat-GP
 - `model` - To show the list of available models and select your model.
 - `voice` - To show the list of available speakers.
 - `character` - To enter your bot character prompt and select predefined character. To enter custom character prompt, use: e.g. `/character i am an assistant`
+- `profile` - To show your profile system preferences
 
 ### Docker
 
