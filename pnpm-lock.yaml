@@ -77,8 +77,8 @@ devDependencies:
     specifier: ^10.3.1
     version: 10.3.1(@nestjs/common@10.3.0)(@nestjs/core@10.3.0)(@nestjs/platform-express@10.3.3)
   '@telegraf/types':
-    specifier: ^6.9.1
-    version: 6.9.1
+    specifier: ^7.1.0
+    version: 7.1.0
   '@types/cache-manager':
     specifier: ^4.0.6
     version: 4.0.6
@@ -1386,6 +1386,11 @@ packages:
 
   /@telegraf/types@6.9.1:
     resolution: {integrity: sha512-bzqwhicZq401T0e09tu8b1KvGfJObPmzKU/iKCT5V466AsAZZWQrBYQ5edbmD1VZuHLEwopoOVY5wPP4HaLtug==}
+    dev: false
+
+  /@telegraf/types@7.1.0:
+    resolution: {integrity: sha512-kGevOIbpMcIlCDeorKGpwZmdH7kHbqlk/Yj6dEpJMKEQw5lk0KVQY0OLXaCswy8GqlIVLd5625OB+rAntP9xVw==}
+    dev: true
 
   /@tsconfig/node10@1.0.9:
     resolution: {integrity: sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==}
