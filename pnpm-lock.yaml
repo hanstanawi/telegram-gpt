@@ -39,8 +39,8 @@ dependencies:
     specifier: ^3.0.0
     version: 3.0.0(@nestjs/common@10.3.6)(@nestjs/core@10.3.7)(zod@3.22.4)
   openai:
-    specifier: ^4.37.1
-    version: 4.37.1
+    specifier: ^4.38.4
+    version: 4.38.4
   pino-http:
     specifier: ^9.0.0
     version: 9.0.0
@@ -5085,8 +5085,8 @@ packages:
       mimic-fn: 4.0.0
     dev: true
 
-  /openai@4.37.1:
-    resolution: {integrity: sha512-YVuhylpDeTNCWgsfhZe38+c4dDWZuW9VgzNY/sdYiNt6K9pvijroyYENp8YGEUHnuIAKtsLneZX9Qb/iB5XHkw==}
+  /openai@4.38.4:
+    resolution: {integrity: sha512-ef5d2YaXDULXkoK+JB/GqmXgOZF5dsPxYwB27QGh5Cv8ykaYugl6MFyKipiwvlhubmNrMtlnISibx3G6BOpR9g==}
     hasBin: true
     dependencies:
       '@types/node': 18.19.20
