@@ -69,7 +69,7 @@
     "reflect-metadata": "^0.1.14",
     "rxjs": "^7.8.1",
     "telegraf": "^4.16.3",
-    "zod": "^3.22.4"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
