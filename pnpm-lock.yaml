@@ -30,8 +30,8 @@ importers:
         specifier: ^5.7.6
         version: 5.7.6
       gpt-tokenizer:
-        specifier: ^2.4.0
-        version: 2.4.0
+        specifier: ^2.5.0
+        version: 2.5.0
       nestjs-pino:
         specifier: ^4.1.0
         version: 4.1.0(@nestjs/common@10.4.3(reflect-metadata@0.1.14)(rxjs@7.8.1))(pino-http@10.3.0)
@@ -1675,6 +1675,7 @@ packages:
   eslint@8.57.1:
     resolution: {integrity: sha512-ypowyDxpVSYpkXr9WPv2PAZCtNip1Mv5KTW0SCurXv/9iOpcrH9PaqUElksqEB6pChqHGDRCFTyrZlGhnLNGiA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -1950,8 +1951,8 @@ packages:
   gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
 
-  gpt-tokenizer@2.4.0:
-    resolution: {integrity: sha512-UmipHgPmzOVSj1Nu0bajJt7eZYnIttoaUSfgsXs77jFlpKGFBodM0fpa7989rl/pUEONKjye9WqAhlerHKux9Q==}
+  gpt-tokenizer@2.5.0:
+    resolution: {integrity: sha512-O/hZmEqmDNjhj2LsO5Ly8Y8927vyI5J1FLbutkFkRo/S1AredRU/Mt2RFy3O71B3Bm6REz0a+3ezBVeYQaCS8Q==}
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
@@ -5769,7 +5770,7 @@ snapshots:
     dependencies:
       get-intrinsic: 1.2.4
 
-  gpt-tokenizer@2.4.0: {}
+  gpt-tokenizer@2.5.0: {}
 
   graceful-fs@4.2.11: {}
 
