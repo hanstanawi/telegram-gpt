@@ -80,7 +80,7 @@
     "@telegraf/types": "^7.1.0",
     "@types/cache-manager": "^4.0.6",
     "@types/express": "^5.0.0",
-    "@types/jest": "^29.5.13",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.9.0",
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
