@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@nestjs/cache-manager':
         specifier: ^2.3.0
-        version: 2.3.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1))(cache-manager@5.7.6)(rxjs@7.8.1)
+        version: 2.3.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5)(cache-manager@5.7.6)(rxjs@7.8.1)
       '@nestjs/common':
         specifier: ^10.4.4
         version: 10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1)
@@ -37,10 +37,10 @@ importers:
         version: 4.1.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(pino-http@10.3.0)
       nestjs-telegraf:
         specifier: ^2.8.0
-        version: 2.8.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1))(reflect-metadata@0.1.14)(telegraf@4.16.3)(typescript@5.6.3)
+        version: 2.8.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5)(reflect-metadata@0.1.14)(telegraf@4.16.3)(typescript@5.6.3)
       nestjs-zod:
         specifier: ^4.1.0
-        version: 4.1.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1))(zod@3.23.8)
+        version: 4.1.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5)(zod@3.23.8)
       openai:
         specifier: ^4.72.0
         version: 4.72.0(zod@3.23.8)
@@ -48,8 +48,8 @@ importers:
         specifier: ^10.3.0
         version: 10.3.0
       pino-pretty:
-        specifier: ^11.3.0
-        version: 11.3.0
+        specifier: ^13.0.0
+        version: 13.0.0
       reflect-metadata:
         specifier: ^0.1.14
         version: 0.1.14
@@ -77,7 +77,7 @@ importers:
         version: 10.2.3(chokidar@3.6.0)(typescript@5.6.3)
       '@nestjs/testing':
         specifier: ^10.4.7
-        version: 10.4.7(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5))
+        version: 10.4.7(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5)(@nestjs/platform-express@10.4.7)
       '@telegraf/types':
         specifier: ^7.1.0
         version: 7.1.0
@@ -2818,8 +2818,8 @@ packages:
   pino-http@10.3.0:
     resolution: {integrity: sha512-kaHQqt1i5S9LXWmyuw6aPPqYW/TjoDPizPs4PnDW4hSpajz2Uo/oisNliLf7We1xzpiLacdntmw8yaZiEkppQQ==}
 
-  pino-pretty@11.3.0:
-    resolution: {integrity: sha512-oXwn7ICywaZPHmu3epHGU2oJX4nPmKvHvB/bwrJHlGcbEWaVcotkpyVHMKLKmiVryWYByNp0jpgAcXpFJDXJzA==}
+  pino-pretty@13.0.0:
+    resolution: {integrity: sha512-cQBBIVG3YajgoUjo1FdKVRX6t9XPxwB9lcNJVD5GCnNM4Y6T12YYx8c6zEejxQsU0wrg9TwmDulcE9LR7qcJqA==}
     hasBin: true
 
   pino-std-serializers@7.0.0:
@@ -4188,14 +4188,14 @@ snapshots:
 
   '@lukeed/csprng@1.1.0': {}
 
-  '@nest-zod/z@1.0.1(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1))(zod@3.23.8)':
+  '@nest-zod/z@1.0.1(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5)(zod@3.23.8)':
     dependencies:
       zod: 3.23.8
     optionalDependencies:
       '@nestjs/common': 10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1)
       '@nestjs/core': 10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1)
 
-  '@nestjs/cache-manager@2.3.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1))(cache-manager@5.7.6)(rxjs@7.8.1)':
+  '@nestjs/cache-manager@2.3.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5)(cache-manager@5.7.6)(rxjs@7.8.1)':
     dependencies:
       '@nestjs/common': 10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1)
       '@nestjs/core': 10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1)
@@ -4294,7 +4294,7 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@nestjs/testing@10.4.7(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5))':
+  '@nestjs/testing@10.4.7(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5)(@nestjs/platform-express@10.4.7)':
     dependencies:
       '@nestjs/common': 10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1)
       '@nestjs/core': 10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1)
@@ -6486,7 +6486,7 @@ snapshots:
       '@nestjs/common': 10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1)
       pino-http: 10.3.0
 
-  nestjs-telegraf@2.8.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1))(reflect-metadata@0.1.14)(telegraf@4.16.3)(typescript@5.6.3):
+  nestjs-telegraf@2.8.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5)(reflect-metadata@0.1.14)(telegraf@4.16.3)(typescript@5.6.3):
     dependencies:
       '@nestjs/common': 10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1)
       '@nestjs/core': 10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1)
@@ -6495,9 +6495,9 @@ snapshots:
       telegraf: 4.16.3
       typescript: 5.6.3
 
-  nestjs-zod@4.1.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1))(zod@3.23.8):
+  nestjs-zod@4.1.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5)(zod@3.23.8):
     dependencies:
-      '@nest-zod/z': 1.0.1(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.7)(reflect-metadata@0.1.14)(rxjs@7.8.1))(zod@3.23.8)
+      '@nest-zod/z': 1.0.1(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.5)(zod@3.23.8)
       deepmerge: 4.3.1
       zod: 3.23.8
     optionalDependencies:
@@ -6683,7 +6683,7 @@ snapshots:
       pino-std-serializers: 7.0.0
       process-warning: 4.0.0
 
-  pino-pretty@11.3.0:
+  pino-pretty@13.0.0:
     dependencies:
       colorette: 2.0.20
       dateformat: 4.6.3
@@ -6695,7 +6695,6 @@ snapshots:
       on-exit-leak-free: 2.1.2
       pino-abstract-transport: 2.0.0
       pump: 3.0.0
-      readable-stream: 4.5.2
       secure-json-parse: 2.7.0
       sonic-boom: 4.0.1
       strip-json-comments: 3.1.1
