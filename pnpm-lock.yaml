@@ -30,8 +30,8 @@ importers:
         specifier: ^5.7.6
         version: 5.7.6
       gpt-tokenizer:
-        specifier: ^2.5.1
-        version: 2.5.1
+        specifier: ^2.6.2
+        version: 2.6.2
       nestjs-pino:
         specifier: ^4.1.0
         version: 4.1.0(@nestjs/common@10.4.4(reflect-metadata@0.1.14)(rxjs@7.8.1))(pino-http@10.3.0)
@@ -1935,8 +1935,8 @@ packages:
   gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
 
-  gpt-tokenizer@2.5.1:
-    resolution: {integrity: sha512-26zNjvGrIf+a6yWg5l2DvNT4LXAmotHyx7IomHVhXiUs62BwKVFLv/l8yRQQrkUDc2XDtzCdjcNuJqzOjxxiPA==}
+  gpt-tokenizer@2.6.2:
+    resolution: {integrity: sha512-OznIET3z069FiwbLtLFXJ9pVESYAa8EnX0BMogs6YJ4Fn2FIcyeZYEbxsp2grPiK0DVaqP1f+0JR/8t9R7/jlg==}
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
@@ -5678,7 +5678,7 @@ snapshots:
     dependencies:
       get-intrinsic: 1.2.4
 
-  gpt-tokenizer@2.5.1: {}
+  gpt-tokenizer@2.6.2: {}
 
   graceful-fs@4.2.11: {}
 
