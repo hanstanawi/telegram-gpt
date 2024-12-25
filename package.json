@@ -60,7 +60,7 @@
     "@prisma/client": "^5.22.0",
     "cache-manager": "^5.7.6",
     "gpt-tokenizer": "^2.7.0",
-    "nestjs-pino": "^4.1.0",
+    "nestjs-pino": "^4.2.0",
     "nestjs-telegraf": "^2.8.0",
     "nestjs-zod": "^4.2.0",
     "openai": "^4.77.0",
