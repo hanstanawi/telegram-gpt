@@ -39,8 +39,8 @@ importers:
         specifier: ^2.8.0
         version: 2.8.0(@nestjs/common@10.4.15(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.15)(reflect-metadata@0.1.14)(telegraf@4.16.3)(typescript@5.7.3)
       nestjs-zod:
-        specifier: ^4.2.0
-        version: 4.2.0(@nestjs/common@10.4.15(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.15)(zod@3.24.1)
+        specifier: ^4.2.1
+        version: 4.2.1(@nestjs/common@10.4.15(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.15)(zod@3.24.1)
       openai:
         specifier: ^4.77.0
         version: 4.77.0(zod@3.24.1)
@@ -679,12 +679,12 @@ packages:
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
     engines: {node: '>=8'}
 
-  '@nest-zod/z@1.0.1':
-    resolution: {integrity: sha512-NsJ2GN7/k92/UCKfJ/y6R+ANNee44gt8t3U84zqGTcHDlz4gvxWnpciVkAlN7vJOfFOLTjPAXpuZMnpmPNA1Iw==}
+  '@nest-zod/z@2.0.0':
+    resolution: {integrity: sha512-OqmJUZlpcx9ECzPYSIjaR/q/xLKrm9FkV+0FIWLEb9MVc9YeP21GmnQJBxE1dPRlLJ1kybNFBlt4D/PB8YAPkA==}
     peerDependencies:
-      '@nestjs/common': ^10.0.0
-      '@nestjs/core': ^10.0.0
-      '@nestjs/swagger': ^7.4.2
+      '@nestjs/common': ^10.0.0 || ^11.0.0
+      '@nestjs/core': ^10.0.0 || ^11.0.0
+      '@nestjs/swagger': ^7.4.2 || ^8.0.0 || ^11.0.0
       zod: '>= 3.14.3'
     peerDependenciesMeta:
       '@nestjs/common':
@@ -2729,12 +2729,12 @@ packages:
       telegraf: ^4.0.0
       typescript: ^4.1.2 || ^5.0.0
 
-  nestjs-zod@4.2.0:
-    resolution: {integrity: sha512-ToowaeHS3TApFfX1yKR9NaxVk1ulCVQw0DO3vFaSAW9mLSdOXqFBEg0kHWVVoL630O7EVGveXiCW0r5kL7PdXg==}
+  nestjs-zod@4.2.1:
+    resolution: {integrity: sha512-D9ql5lTfnSFYJmhChKDfIyxp+T5kpA6zxVD3QeZGc8qcVqF/6jkvparnZB6zybfEJSTQc364Ac/QzaKfVup76Q==}
     peerDependencies:
-      '@nestjs/common': ^10.0.0
-      '@nestjs/core': ^10.0.0
-      '@nestjs/swagger': ^7.4.2 || ^8.0.0
+      '@nestjs/common': ^10.0.0 || ^11.0.0
+      '@nestjs/core': ^10.0.0 || ^11.0.0
+      '@nestjs/swagger': ^7.4.2 || ^8.0.0 || ^11.0.0
       zod: '>= 3.14.3'
     peerDependenciesMeta:
       '@nestjs/common':
@@ -4450,7 +4450,7 @@ snapshots:
 
   '@lukeed/csprng@1.1.0': {}
 
-  '@nest-zod/z@1.0.1(@nestjs/common@10.4.15(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.15)(zod@3.24.1)':
+  '@nest-zod/z@2.0.0(@nestjs/common@10.4.15(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.15)(zod@3.24.1)':
     dependencies:
       zod: 3.24.1
     optionalDependencies:
@@ -6738,9 +6738,9 @@ snapshots:
       telegraf: 4.16.3
       typescript: 5.7.3
 
-  nestjs-zod@4.2.0(@nestjs/common@10.4.15(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.15)(zod@3.24.1):
+  nestjs-zod@4.2.1(@nestjs/common@10.4.15(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.15)(zod@3.24.1):
     dependencies:
-      '@nest-zod/z': 1.0.1(@nestjs/common@10.4.15(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.15)(zod@3.24.1)
+      '@nest-zod/z': 2.0.0(@nestjs/common@10.4.15(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.15)(zod@3.24.1)
       deepmerge: 4.3.1
       zod: 3.24.1
     optionalDependencies:
