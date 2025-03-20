@@ -79,8 +79,8 @@ importers:
         specifier: ^10.4.15
         version: 10.4.15(@nestjs/common@10.4.15(reflect-metadata@0.1.14)(rxjs@7.8.2))(@nestjs/core@10.4.15)(@nestjs/platform-express@10.4.15)
       '@telegraf/types':
-        specifier: ^7.1.0
-        version: 7.1.0
+        specifier: ^8.3.1
+        version: 8.3.1
       '@types/cache-manager':
         specifier: ^4.0.6
         version: 4.0.6
@@ -1029,6 +1029,9 @@ packages:
 
   '@telegraf/types@7.1.0':
     resolution: {integrity: sha512-kGevOIbpMcIlCDeorKGpwZmdH7kHbqlk/Yj6dEpJMKEQw5lk0KVQY0OLXaCswy8GqlIVLd5625OB+rAntP9xVw==}
+
+  '@telegraf/types@8.3.1':
+    resolution: {integrity: sha512-17RBlU04nwiERnrm6X32C/tr0/bYjXWAujS+zeK1C94pcnqetCk2IdqvfXLK9GluSMcyY6iMV5Kt0oAEZ7NF8w==}
 
   '@tsconfig/node10@1.0.9':
     resolution: {integrity: sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==}
@@ -4971,6 +4974,8 @@ snapshots:
       '@sinonjs/commons': 3.0.1
 
   '@telegraf/types@7.1.0': {}
+
+  '@telegraf/types@8.3.1': {}
 
   '@tsconfig/node10@1.0.9': {}
 
