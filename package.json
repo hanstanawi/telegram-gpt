@@ -63,7 +63,7 @@
     "nestjs-pino": "^4.4.0",
     "nestjs-telegraf": "^2.8.0",
     "nestjs-zod": "^4.3.1",
-    "openai": "^4.96.0",
+    "openai": "^4.96.2",
     "pino-http": "^10.4.0",
     "pino-pretty": "^13.0.0",
     "reflect-metadata": "^0.1.14",
