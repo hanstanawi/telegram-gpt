@@ -30,8 +30,8 @@ importers:
         specifier: ^5.7.6
         version: 5.7.6
       gpt-tokenizer:
-        specifier: ^2.9.0
-        version: 2.9.0
+        specifier: ^3.0.1
+        version: 3.0.1
       nestjs-pino:
         specifier: ^4.4.0
         version: 4.4.0(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@10.4.0)(pino@9.4.0)(rxjs@7.8.2)
@@ -2174,8 +2174,8 @@ packages:
     resolution: {integrity: sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==}
     engines: {node: '>= 0.4'}
 
-  gpt-tokenizer@2.9.0:
-    resolution: {integrity: sha512-YSpexBL/k4bfliAzMrRqn3M6+it02LutVyhVpDeMKrC/O9+pCe/5s8U2hYKa2vFLD5/vHhsKc8sOn/qGqII8Kg==}
+  gpt-tokenizer@3.0.1:
+    resolution: {integrity: sha512-5jdaspBq/w4sWw322SvQj1Fku+CN4OAfYZeeEg8U7CWtxBz+zkxZ3h0YOHD43ee+nZYZ5Ud70HRN0ANcdIj4qg==}
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
@@ -6134,7 +6134,7 @@ snapshots:
 
   gopd@1.2.0: {}
 
-  gpt-tokenizer@2.9.0: {}
+  gpt-tokenizer@3.0.1: {}
 
   graceful-fs@4.2.11: {}
 
