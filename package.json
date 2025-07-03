@@ -59,7 +59,7 @@
     "@nestjs/platform-express": "^10.4.19",
     "@prisma/client": "^6.9.0",
     "cache-manager": "^5.7.6",
-    "gpt-tokenizer": "^2.9.0",
+    "gpt-tokenizer": "^3.0.1",
     "nestjs-pino": "^4.4.0",
     "nestjs-telegraf": "^2.8.0",
     "nestjs-zod": "^4.3.1",
