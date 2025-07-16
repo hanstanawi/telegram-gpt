@@ -40,10 +40,10 @@ importers:
         version: 2.9.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18)(reflect-metadata@0.2.2)(telegraf@4.16.3)(typescript@5.8.3)
       nestjs-zod:
         specifier: ^4.3.1
-        version: 4.3.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18)(zod@3.25.71)
+        version: 4.3.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18)(zod@3.25.76)
       openai:
         specifier: ^5.8.3
-        version: 5.8.3(zod@3.25.71)
+        version: 5.8.3(zod@3.25.76)
       pino-http:
         specifier: ^10.5.0
         version: 10.5.0
@@ -60,8 +60,8 @@ importers:
         specifier: ^4.16.3
         version: 4.16.3
       zod:
-        specifier: ^3.25.71
-        version: 3.25.71
+        specifier: ^3.25.76
+        version: 3.25.76
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.8.0
@@ -3847,8 +3847,8 @@ packages:
     resolution: {integrity: sha512-cYVsTjKl8b+FrnidjibDWskAv7UKOfcwaVZdp/it9n1s9fU3IkgDbhdIRKCW4JDsAlECJY0ytoVPT3sK6kideA==}
     engines: {node: '>=18'}
 
-  zod@3.25.71:
-    resolution: {integrity: sha512-BsBc/NPk7h8WsUWYWYL+BajcJPY8YhjelaWu2NMLuzgraKAz4Lb4/6K11g9jpuDetjMiqhZ6YaexFLOC0Ogi3Q==}
+  zod@3.25.76:
+    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
 snapshots:
 
@@ -4658,9 +4658,9 @@ snapshots:
       '@tybys/wasm-util': 0.9.0
     optional: true
 
-  '@nest-zod/z@2.0.0(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18)(zod@3.25.71)':
+  '@nest-zod/z@2.0.0(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18)(zod@3.25.76)':
     dependencies:
-      zod: 3.25.71
+      zod: 3.25.76
     optionalDependencies:
       '@nestjs/common': 10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 10.4.18(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/platform-express@10.4.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -7059,11 +7059,11 @@ snapshots:
       telegraf: 4.16.3
       typescript: 5.8.3
 
-  nestjs-zod@4.3.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18)(zod@3.25.71):
+  nestjs-zod@4.3.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18)(zod@3.25.76):
     dependencies:
-      '@nest-zod/z': 2.0.0(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18)(zod@3.25.71)
+      '@nest-zod/z': 2.0.0(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18)(zod@3.25.76)
       deepmerge: 4.3.1
-      zod: 3.25.71
+      zod: 3.25.76
     optionalDependencies:
       '@nestjs/common': 10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core': 10.4.18(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/platform-express@10.4.19)(reflect-metadata@0.2.2)(rxjs@7.8.2)
@@ -7110,9 +7110,9 @@ snapshots:
     dependencies:
       mimic-function: 5.0.1
 
-  openai@5.8.3(zod@3.25.71):
+  openai@5.8.3(zod@3.25.76):
     optionalDependencies:
-      zod: 3.25.71
+      zod: 3.25.76
 
   optionator@0.9.3:
     dependencies:
@@ -7970,4 +7970,4 @@ snapshots:
 
   yoctocolors-cjs@2.1.2: {}
 
-  zod@3.25.71: {}
+  zod@3.25.76: {}
