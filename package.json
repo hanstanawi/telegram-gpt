@@ -62,7 +62,7 @@
     "gpt-tokenizer": "^3.0.1",
     "nestjs-pino": "^4.4.0",
     "nestjs-telegraf": "^2.8.0",
-    "nestjs-zod": "^4.3.1",
+    "nestjs-zod": "^5.0.0",
     "openai": "^5.11.0",
     "pino-http": "^10.5.0",
     "pino-pretty": "^13.1.1",
