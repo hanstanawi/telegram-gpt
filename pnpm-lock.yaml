@@ -39,8 +39,8 @@ importers:
         specifier: ^2.8.0
         version: 2.9.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18)(reflect-metadata@0.2.2)(telegraf@4.16.3)(typescript@5.8.3)
       nestjs-zod:
-        specifier: ^5.0.0
-        version: 5.0.0(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(zod@3.25.76)
+        specifier: ^5.0.1
+        version: 5.0.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)(zod@3.25.76)
       openai:
         specifier: ^5.16.0
         version: 5.16.0(zod@3.25.76)
@@ -3003,11 +3003,12 @@ packages:
       telegraf: ^4.0.0
       typescript: ^4.1.2 || ^5.0.0
 
-  nestjs-zod@5.0.0:
-    resolution: {integrity: sha512-sqiPpFPNh+9diWT1dFnP3P9M9dvhAIATx2nJAVaYyTJ3jggr4lAkKFdZDb2sOP3yFTjfvLWV+h5gxrO+J2EFEA==}
+  nestjs-zod@5.0.1:
+    resolution: {integrity: sha512-IjK99tpK+04UobLJJA5tlHv94Ml3wNWiRr7pRVDFJ62Jy/c/aYhMQa90WKiy7qUcmIDMWyPHQpHQN/MehESOmw==}
     peerDependencies:
       '@nestjs/common': ^10.0.0 || ^11.0.0
       '@nestjs/swagger': ^7.4.2 || ^8.0.0 || ^11.0.0
+      rxjs: ^7.0.0
       zod: ^3.25.0 || ^4.0.0
     peerDependenciesMeta:
       '@nestjs/swagger':
@@ -7307,10 +7308,11 @@ snapshots:
       telegraf: 4.16.3
       typescript: 5.8.3
 
-  nestjs-zod@5.0.0(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(zod@3.25.76):
+  nestjs-zod@5.0.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)(zod@3.25.76):
     dependencies:
       '@nestjs/common': 10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2)
       deepmerge: 4.3.1
+      rxjs: 7.8.2
       zod: 3.25.76
 
   node-abort-controller@3.1.1: {}
