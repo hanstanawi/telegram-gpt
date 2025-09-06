@@ -77,7 +77,7 @@
     "@nestjs/cli": "^11.0.10",
     "@nestjs/schematics": "^11.0.7",
     "@nestjs/testing": "^10.4.15",
-    "@telegraf/types": "^7.1.0",
+    "@telegraf/types": "^9.0.0",
     "@types/cache-manager": "^4.0.6",
     "@types/express": "^5.0.3",
     "@types/jest": "^30.0.0",
