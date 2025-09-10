@@ -93,7 +93,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "husky": "^9.1.7",
     "jest": "^30.1.1",
-    "lint-staged": "^16.1.2",
+    "lint-staged": "^16.1.6",
     "prettier": "^3.6.2",
     "prisma": "^6.15.0",
     "source-map-support": "^0.5.21",
