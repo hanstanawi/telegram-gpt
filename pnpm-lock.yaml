@@ -33,8 +33,8 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1
       nestjs-pino:
-        specifier: ^4.4.0
-        version: 4.4.0(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@10.5.0)(pino@9.7.0)(rxjs@7.8.2)
+        specifier: ^4.4.1
+        version: 4.4.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@10.5.0)(pino@9.7.0)(rxjs@7.8.2)
       nestjs-telegraf:
         specifier: ^2.8.0
         version: 2.9.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18)(reflect-metadata@0.2.2)(telegraf@4.16.3)(typescript@5.8.3)
@@ -2955,8 +2955,8 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  nestjs-pino@4.4.0:
-    resolution: {integrity: sha512-+GMNlcNWDRrMtlQftfcxN+5pV2C25A4wsYIY7cfRJTMW4b8IFKYReDrG1lUp5LGql9fXemmnVJ2Ww10iIkCZPQ==}
+  nestjs-pino@4.4.1:
+    resolution: {integrity: sha512-/E/JOtsUf/yHFGJx+zxBfwjCn1uJVV9AxSyx/mD0oNFCP+psvv9XE7WGh5Cebo6TwukF4qEu37eissGErVwLVg==}
     engines: {node: '>= 14'}
     peerDependencies:
       '@nestjs/common': ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0
@@ -7196,7 +7196,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nestjs-pino@4.4.0(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@10.5.0)(pino@9.7.0)(rxjs@7.8.2):
+  nestjs-pino@4.4.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(pino-http@10.5.0)(pino@9.7.0)(rxjs@7.8.2):
     dependencies:
       '@nestjs/common': 10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2)
       pino: 9.7.0
