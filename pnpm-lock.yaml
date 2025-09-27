@@ -42,8 +42,8 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)(zod@3.25.76)
       openai:
-        specifier: ^5.20.3
-        version: 5.20.3(zod@3.25.76)
+        specifier: ^5.23.0
+        version: 5.23.0(zod@3.25.76)
       pino-http:
         specifier: ^10.5.0
         version: 10.5.0
@@ -3051,8 +3051,8 @@ packages:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
     engines: {node: '>=18'}
 
-  openai@5.20.3:
-    resolution: {integrity: sha512-8V0KgAcPFppDIP8uMBOkhRrhDBuxNQYQxb9IovP4NN4VyaYGISAzYexyYYuAwVul2HB75Wpib0xDboYJqRMNow==}
+  openai@5.23.0:
+    resolution: {integrity: sha512-Cfq155NHzI7VWR67LUNJMIgPZy2oSh7Fld/OKhxq648BiUjELAvcge7g30xJ6vAfwwXf6TVK0KKuN+3nmIJG/A==}
     hasBin: true
     peerDependencies:
       ws: ^8.18.0
@@ -7273,7 +7273,7 @@ snapshots:
     dependencies:
       mimic-function: 5.0.1
 
-  openai@5.20.3(zod@3.25.76):
+  openai@5.23.0(zod@3.25.76):
     optionalDependencies:
       zod: 3.25.76
 
