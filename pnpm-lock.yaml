@@ -39,8 +39,8 @@ importers:
         specifier: ^2.8.0
         version: 2.9.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18)(reflect-metadata@0.2.2)(telegraf@4.16.3)(typescript@5.8.3)
       nestjs-zod:
-        specifier: ^5.0.1
-        version: 5.0.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)(zod@4.3.4)
+        specifier: ^5.1.1
+        version: 5.1.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)(zod@4.3.4)
       openai:
         specifier: ^6.16.0
         version: 6.16.0(zod@4.3.4)
@@ -2983,8 +2983,8 @@ packages:
       telegraf: ^4.0.0
       typescript: ^4.1.2 || ^5.0.0
 
-  nestjs-zod@5.0.1:
-    resolution: {integrity: sha512-IjK99tpK+04UobLJJA5tlHv94Ml3wNWiRr7pRVDFJ62Jy/c/aYhMQa90WKiy7qUcmIDMWyPHQpHQN/MehESOmw==}
+  nestjs-zod@5.1.1:
+    resolution: {integrity: sha512-pXa9Jrdip7iedKvGxJTvvCFVRCoIcNENPCsHjpCefPH3PcFejRgkZkUcr3TYITRyxnUk7Zy5OsLpirZGLYBfBQ==}
     peerDependencies:
       '@nestjs/common': ^10.0.0 || ^11.0.0
       '@nestjs/swagger': ^7.4.2 || ^8.0.0 || ^11.0.0
@@ -7229,7 +7229,7 @@ snapshots:
       telegraf: 4.16.3
       typescript: 5.8.3
 
-  nestjs-zod@5.0.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)(zod@4.3.4):
+  nestjs-zod@5.1.1(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(rxjs@7.8.2)(zod@4.3.4):
     dependencies:
       '@nestjs/common': 10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2)
       deepmerge: 4.3.1
