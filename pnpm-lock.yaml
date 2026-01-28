@@ -79,8 +79,8 @@ importers:
         specifier: ^10.4.15
         version: 10.4.18(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18)(@nestjs/platform-express@10.4.22)
       '@telegraf/types':
-        specifier: ^7.1.0
-        version: 7.1.0
+        specifier: ^9.2.1
+        version: 9.2.1
       '@types/cache-manager':
         specifier: ^4.0.6
         version: 4.0.6
@@ -942,6 +942,9 @@ packages:
 
   '@telegraf/types@7.1.0':
     resolution: {integrity: sha512-kGevOIbpMcIlCDeorKGpwZmdH7kHbqlk/Yj6dEpJMKEQw5lk0KVQY0OLXaCswy8GqlIVLd5625OB+rAntP9xVw==}
+
+  '@telegraf/types@9.2.1':
+    resolution: {integrity: sha512-GUL3imlzu78NXZc05eVI6r45VMmYET2Xww+Cfjt+RCKYy1O9jO3xcZResi62qaGkKo3lIwB4do+aGkivRhOEOA==}
 
   '@tokenizer/inflate@0.2.7':
     resolution: {integrity: sha512-MADQgmZT1eKjp06jpI2yozxaU9uVs4GzzgSL+uEq7bVcJ9V1ZXQkeGNql1fsSI0gMy1vhvNTNbUqrx+pZfJVmg==}
@@ -4959,6 +4962,8 @@ snapshots:
   '@standard-schema/spec@1.0.0': {}
 
   '@telegraf/types@7.1.0': {}
+
+  '@telegraf/types@9.2.1': {}
 
   '@tokenizer/inflate@0.2.7':
     dependencies:
