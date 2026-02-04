@@ -67,8 +67,8 @@ importers:
         specifier: ^20.1.0
         version: 20.1.0(@types/node@25.1.0)(typescript@5.8.3)
       '@commitlint/config-conventional':
-        specifier: ^20.3.1
-        version: 20.3.1
+        specifier: ^20.4.1
+        version: 20.4.1
       '@nestjs/cli':
         specifier: ^11.0.14
         version: 11.0.14(@types/node@25.1.0)
@@ -368,8 +368,8 @@ packages:
     engines: {node: '>=v18'}
     hasBin: true
 
-  '@commitlint/config-conventional@20.3.1':
-    resolution: {integrity: sha512-NCzwvxepstBZbmVXsvg49s+shCxlJDJPWxXqONVcAtJH9wWrOlkMQw/zyl+dJmt8lyVopt5mwQ3mR5M2N2rUWg==}
+  '@commitlint/config-conventional@20.4.1':
+    resolution: {integrity: sha512-0YUvIeBtpi86XriqrR+TCULVFiyYTIOEPjK7tTRMxjcBm1qlzb+kz7IF2WxL6Fq5DaundG8VO37BNgMkMTBwqA==}
     engines: {node: '>=v18'}
 
   '@commitlint/config-validator@20.0.0':
@@ -432,8 +432,8 @@ packages:
     resolution: {integrity: sha512-bVUNBqG6aznYcYjTjnc3+Cat/iBgbgpflxbIBTnsHTX0YVpnmINPEkSRWymT2Q8aSH3Y7aKnEbunilkYe8TybA==}
     engines: {node: '>=v18'}
 
-  '@commitlint/types@20.3.1':
-    resolution: {integrity: sha512-VmIFV/JkBRhDRRv7N5B7zEUkNZIx9Mp+8Pe65erz0rKycXLsi8Epcw0XJ+btSeRXgTzE7DyOyA9bkJ9mn/yqVQ==}
+  '@commitlint/types@20.4.0':
+    resolution: {integrity: sha512-aO5l99BQJ0X34ft8b0h7QFkQlqxC6e7ZPVmBKz13xM9O8obDaM1Cld4sQlJDXXU/VFuUzQ30mVtHjVz74TuStw==}
     engines: {node: '>=v18'}
 
   '@cspotcode/source-map-support@0.8.1':
@@ -988,9 +988,6 @@ packages:
 
   '@types/conventional-commits-parser@5.0.1':
     resolution: {integrity: sha512-7uz5EHdzz2TqoMfV7ee61Egf5y6NkcO4FB/1iCCQnbeiI1F3xzv3vK5dBCXUCLQgGYS+mUeigK1iKQzvED+QnQ==}
-
-  '@types/conventional-commits-parser@5.0.2':
-    resolution: {integrity: sha512-BgT2szDXnVypgpNxOK8aL5SGjUdaQbC++WZNjF1Qge3Og2+zhHj+RWhmehLhYyvQwqAmvezruVfOf8+3m74W+g==}
 
   '@types/cookiejar@2.1.5':
     resolution: {integrity: sha512-he+DHOWReW0nghN24E1WUqM0efK4kI9oTqDm6XmK8ZPe2djZ90BSNdGnIyCLzCPw7/pogPlGbzI2wHGGmi4O/Q==}
@@ -1713,13 +1710,18 @@ packages:
     resolution: {integrity: sha512-ROjNchA9LgfNMTTFSIWPzebCwOGFdgkEq45EnvvrmSLvCtAw0HSmrCs7/ty+wAeYUZyNay0YMUNYFTRL72PkBQ==}
     engines: {node: '>=16'}
 
-  conventional-changelog-conventionalcommits@7.0.2:
-    resolution: {integrity: sha512-NKXYmMR/Hr1DevQegFB4MwfM5Vv0m4UIxKZTTYuD98lpTknaZlSRrDOG4X7wIXpGkfsYxZTghUN+Qq+T0YQI7w==}
-    engines: {node: '>=16'}
+  conventional-changelog-conventionalcommits@9.1.0:
+    resolution: {integrity: sha512-MnbEysR8wWa8dAEvbj5xcBgJKQlX/m0lhS8DsyAAWDHdfs2faDJxTgzRYlRYpXSe7UiKrIIlB4TrBKU9q9DgkA==}
+    engines: {node: '>=18'}
 
   conventional-commits-parser@5.0.0:
     resolution: {integrity: sha512-ZPMl0ZJbw74iS9LuX9YIAiW8pfM5p3yh2o/NbXHbkFuZzY5jvdi5jFycEOkmBW5H5I7nA+D6f3UcsCLP2vvSEA==}
     engines: {node: '>=16'}
+    hasBin: true
+
+  conventional-commits-parser@6.2.1:
+    resolution: {integrity: sha512-20pyHgnO40rvfI0NGF/xiEoFMkXDtkF8FwHvk5BokoFoCuTQRI8vrNCNFWUOfuolKJMm1tPCHc8GgYEtr1XRNA==}
+    engines: {node: '>=18'}
     hasBin: true
 
   convert-source-map@2.0.0:
@@ -2313,6 +2315,7 @@ packages:
 
   glob@10.5.0:
     resolution: {integrity: sha512-DfXN8DfhJ7NH3Oe7cFmu3NCu1wKbkReJ8TorzSAFbSKrlNaQSKfIzqYqVY8zlbs2NLBbWpRiU52GX2PbaBVNkg==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   glob@13.0.0:
@@ -2321,7 +2324,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
@@ -2854,6 +2857,10 @@ packages:
   meow@12.1.1:
     resolution: {integrity: sha512-BhXM0Au22RwUneMPwSCnyhTOizdWoIEPU9sp0Aqa1PnDMR5Wv2FGXYDjuzJEIX+Eo2Rb8xuYe5jrnm5QowQFkw==}
     engines: {node: '>=16.10'}
+
+  meow@13.2.0:
+    resolution: {integrity: sha512-pxQJQzB6djGPXh08dacEloMFopsOqGVRKFPYvPOt9XDZ1HasbgDZA74CJGreSU4G3Ak7EFJGoiH2auq+yXISgA==}
+    engines: {node: '>=18'}
 
   merge-descriptors@1.0.3:
     resolution: {integrity: sha512-gaNvAS7TZ897/rVaZ0nMtAyxNyi/pdbjbAwUpFQpN70GqnVfOiXpeUUMKRBmzXaSQ8DdTX4/0ms62r2K+hE6mQ==}
@@ -4200,19 +4207,19 @@ snapshots:
       - '@types/node'
       - typescript
 
-  '@commitlint/config-conventional@20.3.1':
+  '@commitlint/config-conventional@20.4.1':
     dependencies:
-      '@commitlint/types': 20.3.1
-      conventional-changelog-conventionalcommits: 7.0.2
+      '@commitlint/types': 20.4.0
+      conventional-changelog-conventionalcommits: 9.1.0
 
   '@commitlint/config-validator@20.0.0':
     dependencies:
-      '@commitlint/types': 20.3.1
+      '@commitlint/types': 20.4.0
       ajv: 8.17.1
 
   '@commitlint/ensure@20.0.0':
     dependencies:
-      '@commitlint/types': 20.3.1
+      '@commitlint/types': 20.4.0
       lodash.camelcase: 4.3.0
       lodash.kebabcase: 4.1.1
       lodash.snakecase: 4.1.1
@@ -4228,7 +4235,7 @@ snapshots:
 
   '@commitlint/is-ignored@20.0.0':
     dependencies:
-      '@commitlint/types': 20.3.1
+      '@commitlint/types': 20.4.0
       semver: 7.7.3
 
   '@commitlint/lint@20.0.0':
@@ -4258,7 +4265,7 @@ snapshots:
 
   '@commitlint/parse@20.0.0':
     dependencies:
-      '@commitlint/types': 20.3.1
+      '@commitlint/types': 20.4.0
       conventional-changelog-angular: 7.0.0
       conventional-commits-parser: 5.0.0
 
@@ -4273,7 +4280,7 @@ snapshots:
   '@commitlint/resolve-extends@20.1.0':
     dependencies:
       '@commitlint/config-validator': 20.0.0
-      '@commitlint/types': 20.3.1
+      '@commitlint/types': 20.4.0
       global-directory: 4.0.1
       import-meta-resolve: 4.2.0
       lodash.mergewith: 4.6.2
@@ -4284,7 +4291,7 @@ snapshots:
       '@commitlint/ensure': 20.0.0
       '@commitlint/message': 20.0.0
       '@commitlint/to-lines': 20.0.0
-      '@commitlint/types': 20.3.1
+      '@commitlint/types': 20.4.0
 
   '@commitlint/to-lines@20.0.0': {}
 
@@ -4297,10 +4304,10 @@ snapshots:
       '@types/conventional-commits-parser': 5.0.1
       chalk: 5.6.2
 
-  '@commitlint/types@20.3.1':
+  '@commitlint/types@20.4.0':
     dependencies:
-      '@types/conventional-commits-parser': 5.0.2
-      chalk: 5.6.2
+      conventional-commits-parser: 6.2.1
+      picocolors: 1.1.1
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
@@ -5016,10 +5023,6 @@ snapshots:
       '@types/node': 25.1.0
 
   '@types/conventional-commits-parser@5.0.1':
-    dependencies:
-      '@types/node': 25.1.0
-
-  '@types/conventional-commits-parser@5.0.2':
     dependencies:
       '@types/node': 25.1.0
 
@@ -5788,7 +5791,7 @@ snapshots:
     dependencies:
       compare-func: 2.0.0
 
-  conventional-changelog-conventionalcommits@7.0.2:
+  conventional-changelog-conventionalcommits@9.1.0:
     dependencies:
       compare-func: 2.0.0
 
@@ -5798,6 +5801,10 @@ snapshots:
       is-text-path: 2.0.0
       meow: 12.1.1
       split2: 4.2.0
+
+  conventional-commits-parser@6.2.1:
+    dependencies:
+      meow: 13.2.0
 
   convert-source-map@2.0.0: {}
 
@@ -7131,6 +7138,8 @@ snapshots:
       fs-monkey: 1.1.0
 
   meow@12.1.1: {}
+
+  meow@13.2.0: {}
 
   merge-descriptors@1.0.3: {}
 
